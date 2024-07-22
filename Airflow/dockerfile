@@ -1,0 +1,12 @@
+FROM apache/airflow:latest
+#docker-compose up -d --build
+# Install deps as root.
+USER root
+RUN  apt-get -y update && \
+    apt-get -y install python3-dev libhdf5-dev default-libmysqlclient-dev build-essential pkg-config
+
+USER airflow
+# Install python requirements
+RUN pip install PyGithub && \
+    pip install tensorflow
+CMD ["bash"]
