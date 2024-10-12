@@ -20,6 +20,7 @@ import tensorflow as tf
 from matplotlib import pyplot as plt
 import matplotlib.dates as mdates
 import io 
+from xgboost import XGBClassifier, XGBRegressor
 
 default_args = {
     'owner': 'airflow',
@@ -53,7 +54,7 @@ def get_src_tables(**context):
     
 
 def scrap_stock(**context):
-    date  = datetime.today().strftime('%d/%m/%Y')
+    date  = datetime.today().strftime('%m/%d/%Y')
     context['ti'].xcom_push(key="current_date", value=date)
     close = []
     open = []
@@ -127,11 +128,9 @@ def concat_old_data(**context):
     date=context['ti'].xcom_pull(key="current_date")
     df_new = context['ti'].xcom_pull(key="new data")
     df_new.rename(index={0:date},inplace=True)
-    print(df_new)
     df_full = pd.concat([df_old, df_new])
     df_full.reset_index(names="DATE",inplace=True)
     df_full.drop_duplicates(inplace=True,keep='last')
-    print(df_full)
     df_full.to_sql(f'stock_categorical', engine, if_exists='replace', index=False)
     df_full.drop(columns='DATE',inplace=True)
     context['ti'].xcom_push(key="full data", value=df_full)
@@ -231,16 +230,28 @@ def transform_data(**context):
         return data
     typical_price(df)
     input = df.iloc[[-1]]
+    context['ti'].xcom_push(key="input_monitoring", value=input)
+
     input.drop(columns=["Target","CLOSE_t+1"],inplace=True)
     context['ti'].xcom_push(key="input", value=input)
 
+    input['CLOSE_diff1'] = input['CLOSE'].diff(1)
+    context['ti'].xcom_push(key="input_ts", value=input)
+
 def pred_Categorical(**context):
     s3 = boto3.resource('s3',
-                        endpoint_url='http://host.docker.internal:9000',
-                        aws_access_key_id='kiIxDzwTdJOxY2GxPJs3',
-                        aws_secret_access_key='n3F5yEttnainXd7dDOdnEAtcsreEYThcPW8LJK5H'
+                        endpoint_url='http://host.docker.internal:9005',
+                        aws_access_key_id='',
+                        aws_secret_access_key=''
     )
-    model = pickle.loads(s3.Bucket("mlflow-artifacts").Object("/1/a4f785e5e1bb4ee79ba23aa117c7c8a6/artifacts/testmodel/model.pkl").get()['Body'].read())
+
+    temp_model_location = './temp_model.xgb'
+    temp_model_file = open(temp_model_location, 'wb')
+    temp_model_file.write(s3.Bucket("mlflow-artifacts").Object("7/2ddf3e31f2304446a02d124067d40814/artifacts/XGBoost/model.xgb").get()['Body'].read())
+    temp_model_file.close()
+    model = XGBClassifier()
+    model.load_model(temp_model_location)
+
     input = context['ti'].xcom_pull(key="input")
     pred = model.predict(input).tolist()
     context['ti'].xcom_push(key="pred_categorical", value=pred)
@@ -251,9 +262,9 @@ def pred_time_series(**context):
     df_old_ts['CLOSE'] = df_old_ts['CLOSE'].astype(float)
 
     s3 = boto3.resource('s3',
-                        endpoint_url='http://host.docker.internal:9000',
-                        aws_access_key_id='kiIxDzwTdJOxY2GxPJs3',
-                        aws_secret_access_key='n3F5yEttnainXd7dDOdnEAtcsreEYThcPW8LJK5H'
+                        endpoint_url='http://host.docker.internal:9005',
+                        aws_access_key_id='',
+                        aws_secret_access_key=''
     )
     df_new = context['ti'].xcom_pull(key="new data")
 
@@ -263,7 +274,8 @@ def pred_time_series(**context):
 
     df_old_ts.set_index("DATE",inplace=True)
     df_full_ts = pd.concat([df_old_ts, df_new_ts])
-    df_full_ts.index = pd.to_datetime(df_full_ts.index,format="%d/%m/%Y").date
+    print(df_full_ts.index)
+    df_full_ts.index = pd.to_datetime(df_full_ts.index,format='mixed').date
 
     conn = BaseHook.get_connection('postgres_server_2')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
@@ -271,23 +283,21 @@ def pred_time_series(**context):
     df_full_ts.reset_index(names='DATE',inplace=True)
     df_full_ts.to_sql(f'stock_time_series', engine, if_exists='replace', index=False)
 
-    df_full_ts['CLOSE_diff1'] = df_full_ts['CLOSE'].diff(1)
-
     context['ti'].xcom_push(key="df_full_ts", value=df_full_ts)
-
-    list_a = df_full_ts['CLOSE_diff1']
-    list_a[-6::]
-    list_2 = [[list_a[-6::]]]
     
-    temp_model_location = './temp_model.keras'
-    temp_model_file = open(temp_model_location, 'wb')
-    temp_model_file.write(s3.Bucket("mlflow-artifacts").Object("/6/4a23c300b75b439f81099eece1c7c2c0/artifacts/time-series-model/data/model.keras").get()['Body'].read())
+    temp_model_location_2 = './temp_model_2.xgb'
+    temp_model_file = open(temp_model_location_2, 'wb')
+    temp_model_file.write(s3.Bucket("mlflow-artifacts").Object("6/dea4644da47c4c329304885e4e477aac/artifacts/Time-series/model.xgb").get()['Body'].read())
     temp_model_file.close()
-    lstm_model = tf.keras.models.load_model(temp_model_location)
+    model = XGBRegressor()
+    model.load_model(temp_model_location_2)
 
-    X_train = np.hstack(list_2).reshape(len(list_2),6,1)
-    yhat = pd.DataFrame(lstm_model.predict(X_train))
+    input = context['ti'].xcom_pull(key="input_ts")
+    pred_ts = model.predict(input)
+
+    yhat = pd.DataFrame(pred_ts)
     yhat.columns = ['predicted_index']
+    print(yhat)
     context['ti'].xcom_push(key="pred_time_series", value=yhat)
 
 def plot(**context):
@@ -299,34 +309,43 @@ def plot(**context):
     yhat = context['ti'].xcom_pull(key="pred_time_series")
     trans_value = last_value+yhat
     trans_value.rename(columns={"predicted_index":"pred_index"},inplace=True)
+    trans_value['pred_index'] = trans_value['pred_index'].astype(int)
     df_ts_pred = pd.concat([new_df, trans_value], ignore_index=True)
 
 
-    date=context['ti'].xcom_pull(key="current_date")
+    date=datetime.today().strftime('%Y-%m-%d')
+    print(date)
     df_ts_pred.rename(index={0:date},inplace=True)
 
     date_after = pd.to_datetime(date) + timedelta(days=1)
+    print(date_after)
     df_ts_pred.rename(index={1:date_after},inplace=True)
+    print(df_ts_pred)
     df_ts_pred.index = pd.to_datetime(df_ts_pred.index).date
-
+    print(df_ts_pred)
 
     #b = df_full_ts.reset_index(names="date")
     b = df_full_ts[['CLOSE',"DATE"]]
     print(b)
+
     c = df_ts_pred.reset_index(names="date")
     c = c[['pred_index',"date"]]
     print(c)
+
     fig, ax = plt.subplots()
-    ax.plot(b['DATE'].iloc[-10:],b['CLOSE'].iloc[-10:],color="gray")
+    ax.plot(b['DATE'].iloc[-5:],b['CLOSE'].iloc[-5:],color="gray", label = 'History price')
     ax = plt.subplot(111)
-    ax.plot(c['date'],c['pred_index'],color="red")
+    ax.plot(c['date'],c['pred_index'],color="red", label = 'Predicted price')
     plt.title('ACB stock prediction', fontdict={'fontsize':20})
-    ax.set_xlabel('Time of posting')
+    ax.set_xlabel('Date')
     ax.set_ylabel('Stock price (VND)')
-    #ax.xaxis.set_major_locator(mdates.DayLocator(interval=2))
+    ax.legend(loc="upper left")
+    ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
+    x = c['date']
+    y = c['pred_index']
     values  =c['pred_index'].to_list()
-    for i, v in enumerate(values):
-        ax.text(i,v, "%d" %v, ha="center")
+    for i, txt in enumerate(values):
+        ax.annotate(txt, (x[i], y[i]))
     buf = io.BytesIO()
     plt.savefig(buf, format="jpg")
 
@@ -338,21 +357,21 @@ def plot(**context):
     plt.show()
 
     s3 = boto3.resource('s3',
-                        endpoint_url='http://host.docker.internal:9000',
-                        aws_access_key_id='kiIxDzwTdJOxY2GxPJs3',
-                        aws_secret_access_key='n3F5yEttnainXd7dDOdnEAtcsreEYThcPW8LJK5H'
+                        endpoint_url='http://host.docker.internal:9005',
+                        aws_access_key_id='',
+                        aws_secret_access_key=''
     )
     s3.meta.client.upload_file(temp_model_location, 'mlflow-artifacts', 'plot.jpg')
 
 def plot_github(**context):
     s3 = boto3.resource('s3',
-                    endpoint_url='http://host.docker.internal:9000',
-                    aws_access_key_id='kiIxDzwTdJOxY2GxPJs3',
-                    aws_secret_access_key='n3F5yEttnainXd7dDOdnEAtcsreEYThcPW8LJK5H'
-)
+                        endpoint_url='http://host.docker.internal:9005',
+                        aws_access_key_id='',
+                        aws_secret_access_key=''
+    )
     content = s3.Bucket("mlflow-artifacts").Object("/plot.jpg").get()['Body'].read()
 
-    g = Github("*")
+    g = Github("")
 
     repo = g.get_user().get_repo('StockPredict.github.io')
     all_files = []
@@ -397,6 +416,38 @@ def plot_github(**context):
         repo.create_file(git_file, "committing files", content, branch="main")
         print(git_file + ' CREATED')
 
+def monitoring(**context):
+    conn = BaseHook.get_connection('postgres_server_2')
+    engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
+
+    df_old_clf = pd.read_sql_query('SELECT * FROM monitoring_clf ', engine)
+    prediction_clf = context['ti'].xcom_pull(key="pred_categorical")
+    date=datetime.today().strftime('%m-%d-%Y')
+
+    input_clf = context['ti'].xcom_pull(key="input_monitoring")
+    if date != df_old_clf.iloc[-1:].index.values[0]:
+        df_old_clf['Target'].iloc[-1] = input_clf['Target']
+
+    new_row = {"Date": date, "Target": np.nan,'Prediction': prediction_clf}
+    new_input = pd.DataFrame.from_dict(new_row)
+    df_concat_clf = pd.concat([df_old_clf,new_input])
+    df_concat_clf.drop_duplicates(keep='last',inplace=True)
+    df_concat_clf.to_sql(f'monitoring_clf', engine, if_exists='replace', index=False)
+
+    df_old_ts = pd.read_sql_query('SELECT * FROM monitoring_time_series ', engine)
+    prediction_ts = context['ti'].xcom_pull(key="pred_time_series")
+    input_ts = context['ti'].xcom_pull(key="input_ts")
+    if date != df_old_clf.iloc[-1:].index.values[0]:
+        df_old_ts['CLOSE_diff_t+1'].iloc[-1] = input_ts[-1]
+    print(prediction_ts)
+    new_row = {"Date": date, "CLOSE_diff_t+1": np.nan,'New_Prediction_ts': prediction_ts.iloc[0].values}
+    new_input_ts = pd.DataFrame.from_dict(new_row)
+    print(new_input_ts)
+    df_concat_clf = pd.concat([df_old_ts,new_input_ts])
+    print(df_concat_clf)
+    df_concat_clf.drop_duplicates(keep='last',inplace=True)
+    df_concat_clf.to_sql(f'monitoring_time_series', engine, if_exists='replace', index=False)
+    
 with DAG(
     dag_id="dag_with_postgres_hooks",
     default_args=default_args,
@@ -434,7 +485,11 @@ with DAG(
         task_id = "plot_github",
         python_callable=plot_github
     )
-    task_6>> task_1 >> task_2 >> task_3>> task_4>> task_5>> task_7>> task_8
+    task_9 =PythonOperator(
+        task_id = "monitoring",
+        python_callable=monitoring
+    )
+    task_6>> task_1 >> task_2 >> task_3>> task_4>> task_5>> task_7>> task_8>> task_9
 
 
 
