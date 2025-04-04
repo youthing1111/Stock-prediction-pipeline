@@ -451,7 +451,7 @@ def monitoring(**context):
     df_concat_clf.to_sql(f'monitoring_time_series', engine, if_exists='replace', index=False)
     
 with DAG(
-    dag_id="dag_with_postgres_hooks",
+    dag_id="Stock_prediction",
     default_args=default_args,
     schedule_interval='30 13 * * *'
 ) as dag:
