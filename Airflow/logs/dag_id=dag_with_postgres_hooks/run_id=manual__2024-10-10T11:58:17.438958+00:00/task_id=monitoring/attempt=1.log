@@ -1,0 +1,86 @@
+[2024-10-10T11:58:59.751+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-10-10T11:58:59.760+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.monitoring manual__2024-10-10T11:58:17.438958+00:00 [queued]>
+[2024-10-10T11:58:59.763+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.monitoring manual__2024-10-10T11:58:17.438958+00:00 [queued]>
+[2024-10-10T11:58:59.763+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-10-10T11:58:59.767+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): monitoring> on 2024-10-10 11:58:17.438958+00:00
+[2024-10-10T11:58:59.772+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=8142) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-10-10T11:58:59.773+0000] {standard_task_runner.py:64} INFO - Started process 8166 to run task
+[2024-10-10T11:58:59.774+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'monitoring', 'manual__2024-10-10T11:58:17.438958+00:00', '--job-id', '1132', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmpecxswuti']
+[2024-10-10T11:58:59.774+0000] {standard_task_runner.py:91} INFO - Job 1132: Subtask monitoring
+[2024-10-10T11:58:59.791+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.monitoring manual__2024-10-10T11:58:17.438958+00:00 [running]> on host b7aba691e1ff
+[2024-10-10T11:58:59.820+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='monitoring' AIRFLOW_CTX_EXECUTION_DATE='2024-10-10T11:58:17.438958+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-10T11:58:17.438958+00:00'
+[2024-10-10T11:58:59.820+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-10-10T11:58:59.823+0000] {base.py:84} INFO - Using connection ID 'postgres_server_2' for task execution.
+[2024-10-10T11:58:59.853+0000] {warnings.py:112} WARNING - /opt/***/dags/Stock_pred.py:428: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_old_clf['Target'].iloc[-1] = input_clf['Target']
+
+[2024-10-10T11:58:59.882+0000] {logging_mixin.py:188} INFO -    predicted_index
+0      -124.238213
+[2024-10-10T11:58:59.884+0000] {logging_mixin.py:188} INFO -          Date  ...                                  New_Prediction_ts
+0  2024-10-10  ...  predicted_index   -124.238213
+Name: 0, dtype: ...
+
+[1 rows x 3 columns]
+[2024-10-10T11:58:59.887+0000] {logging_mixin.py:188} INFO -                     Date  ...                                  New_Prediction_ts
+0    2022-02-24 00:00:00  ...                                         -39.024616
+1    2022-02-25 00:00:00  ...                                        -132.841003
+2    2022-02-28 00:00:00  ...                                         -37.190056
+3    2022-03-01 00:00:00  ...                                         -206.79863
+4    2022-03-02 00:00:00  ...                                         110.723549
+..                   ...  ...                                                ...
+605  2024-07-30 00:00:00  ...                                          10.340194
+606  2024-07-31 00:00:00  ...                                        -188.112778
+607  2024-08-01 00:00:00  ...                                         -12.042727
+608  2024-08-02 00:00:00  ...                                          -9.038181
+0             2024-10-10  ...  predicted_index   -124.238213
+Name: 0, dtype: ...
+
+[610 rows x 3 columns]
+[2024-10-10T11:58:59.888+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-10-10T11:58:59.888+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/Stock_pred.py", line 447, in monitoring
+    df_concat_clf.drop_duplicates(keep='last',inplace=True)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 6566, in drop_duplicates
+    result = self[-self.duplicated(subset, keep=keep)]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 6706, in duplicated
+    labels, shape = map(list, zip(*map(f, vals)))
+                              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 6674, in f
+    labels, shape = algorithms.factorize(vals, size_hint=len(self))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/algorithms.py", line 795, in factorize
+    codes, uniques = factorize_array(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/algorithms.py", line 595, in factorize_array
+    uniques, codes = table.factorize(
+                     ^^^^^^^^^^^^^^^^
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7280, in pandas._libs.hashtable.PyObjectHashTable.factorize
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7194, in pandas._libs.hashtable.PyObjectHashTable._unique
+TypeError: unhashable type: 'Series'
+[2024-10-10T11:58:59.892+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=monitoring, run_id=manual__2024-10-10T11:58:17.438958+00:00, execution_date=20241010T115817, start_date=20241010T115859, end_date=20241010T115859
+[2024-10-10T11:58:59.897+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1132 for task monitoring (unhashable type: 'Series'; 8166)
+[2024-10-10T11:58:59.912+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-10-10T11:58:59.919+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-10T11:58:59.919+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

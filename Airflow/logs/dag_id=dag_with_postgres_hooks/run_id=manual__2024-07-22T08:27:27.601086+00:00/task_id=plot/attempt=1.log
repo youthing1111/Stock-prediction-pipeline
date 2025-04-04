@@ -1,0 +1,43 @@
+[2024-07-22T08:27:45.845+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-22T08:27:45.853+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.plot manual__2024-07-22T08:27:27.601086+00:00 [queued]>
+[2024-07-22T08:27:45.856+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.plot manual__2024-07-22T08:27:27.601086+00:00 [queued]>
+[2024-07-22T08:27:45.856+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-22T08:27:45.861+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): plot> on 2024-07-22 08:27:27.601086+00:00
+[2024-07-22T08:27:45.864+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=3074) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-22T08:27:45.865+0000] {standard_task_runner.py:64} INFO - Started process 3085 to run task
+[2024-07-22T08:27:45.866+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'plot', 'manual__2024-07-22T08:27:27.601086+00:00', '--job-id', '472', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmpl4qyuptp']
+[2024-07-22T08:27:45.866+0000] {standard_task_runner.py:91} INFO - Job 472: Subtask plot
+[2024-07-22T08:27:45.882+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.plot manual__2024-07-22T08:27:27.601086+00:00 [running]> on host d89911194c67
+[2024-07-22T08:27:45.910+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='plot' AIRFLOW_CTX_EXECUTION_DATE='2024-07-22T08:27:27.601086+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-22T08:27:27.601086+00:00'
+[2024-07-22T08:27:45.911+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-22T08:27:45.929+0000] {logging_mixin.py:188} INFO -    pred_index
+0     24750.0
+[2024-07-22T08:27:45.935+0000] {logging_mixin.py:188} INFO -      pred_index
+0  24750.000000
+1  24772.589844
+[2024-07-22T08:27:45.939+0000] {warnings.py:112} WARNING - /opt/***/dags/Stock_pred.py:305: UserWarning: Parsing dates in %d/%m/%Y format when dayfirst=False (the default) was specified. Pass `dayfirst=True` or specify a format to silence this warning.
+  date_after = pd.to_datetime(date) + timedelta(days=1)
+
+[2024-07-22T08:27:45.941+0000] {warnings.py:112} WARNING - /opt/***/dags/Stock_pred.py:307: UserWarning: Parsing dates in %d/%m/%Y format when dayfirst=False (the default) was specified. Pass `dayfirst=True` or specify a format to silence this warning.
+  df_ts_pred.index = pd.to_datetime(df_ts_pred.index).date
+
+[2024-07-22T08:27:45.942+0000] {logging_mixin.py:188} INFO -               pred_index
+2024-07-22  24750.000000
+2024-07-23  24772.589844
+[2024-07-22T08:27:45.943+0000] {logging_mixin.py:188} INFO -         CLOSE        date
+996   24100.0  2024-07-16
+997   24500.0  2024-07-17
+998   24800.0  2024-07-18
+999   25100.0  2024-07-19
+1000  24750.0  2024-07-22
+[2024-07-22T08:27:45.945+0000] {logging_mixin.py:188} INFO -      pred_index        date
+0  24750.000000  2024-07-22
+1  24772.589844  2024-07-23
+[2024-07-22T08:27:46.078+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-07-22T08:27:46.078+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-22T08:27:46.082+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=plot, run_id=manual__2024-07-22T08:27:27.601086+00:00, execution_date=20240722T082727, start_date=20240722T082745, end_date=20240722T082746
+[2024-07-22T08:27:46.093+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-22T08:27:46.103+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-22T08:27:46.104+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

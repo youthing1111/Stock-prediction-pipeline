@@ -1,0 +1,49 @@
+[2024-08-29T08:45:56.269+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-29T08:45:56.280+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_time_series manual__2024-08-29T08:45:37.315187+00:00 [queued]>
+[2024-08-29T08:45:56.284+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_time_series manual__2024-08-29T08:45:37.315187+00:00 [queued]>
+[2024-08-29T08:45:56.285+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-29T08:45:56.291+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): pred_time_series> on 2024-08-29 08:45:37.315187+00:00
+[2024-08-29T08:45:56.296+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=438) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-29T08:45:56.298+0000] {standard_task_runner.py:64} INFO - Started process 456 to run task
+[2024-08-29T08:45:56.299+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'pred_time_series', 'manual__2024-08-29T08:45:37.315187+00:00', '--job-id', '928', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmps8rofu27']
+[2024-08-29T08:45:56.300+0000] {standard_task_runner.py:91} INFO - Job 928: Subtask pred_time_series
+[2024-08-29T08:45:56.322+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.pred_time_series manual__2024-08-29T08:45:37.315187+00:00 [running]> on host b7aba691e1ff
+[2024-08-29T08:45:56.369+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='pred_time_series' AIRFLOW_CTX_EXECUTION_DATE='2024-08-29T08:45:37.315187+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-29T08:45:37.315187+00:00'
+[2024-08-29T08:45:56.370+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-29T08:45:56.465+0000] {warnings.py:112} WARNING - /opt/***/dags/Stock_pred.py:269: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_new_ts.rename(index={0:date},inplace=True)
+
+[2024-08-29T08:45:56.479+0000] {base.py:84} INFO - Using connection ID 'postgres_server_2' for task execution.
+[2024-08-29T08:45:56.528+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-29T08:45:56.529+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/Stock_pred.py", line 296, in pred_time_series
+    model.load_model(temp_model_location)
+  File "/home/airflow/.local/lib/python3.12/site-packages/xgboost/sklearn.py", line 922, in load_model
+    raise TypeError(
+TypeError: Loading an estimator with different type. Expecting: classifier, got: regressor
+[2024-08-29T08:45:56.535+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=pred_time_series, run_id=manual__2024-08-29T08:45:37.315187+00:00, execution_date=20240829T084537, start_date=20240829T084556, end_date=20240829T084556
+[2024-08-29T08:45:56.541+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 928 for task pred_time_series (Loading an estimator with different type. Expecting: classifier, got: regressor; 456)
+[2024-08-29T08:45:56.561+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-29T08:45:56.588+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-29T08:45:56.602+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

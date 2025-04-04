@@ -1,0 +1,26 @@
+[2024-07-10T08:36:20.425+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-10T08:36:20.435+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.scrap_new_data manual__2024-07-10T08:36:18.314404+00:00 [queued]>
+[2024-07-10T08:36:20.438+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.scrap_new_data manual__2024-07-10T08:36:18.314404+00:00 [queued]>
+[2024-07-10T08:36:20.438+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-10T08:36:20.442+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): scrap_new_data> on 2024-07-10 08:36:18.314404+00:00
+[2024-07-10T08:36:20.445+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1370) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-10T08:36:20.446+0000] {standard_task_runner.py:63} INFO - Started process 1379 to run task
+[2024-07-10T08:36:20.447+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'scrap_new_data', 'manual__2024-07-10T08:36:18.314404+00:00', '--job-id', '363', '--raw', '--subdir', 'DAGS_FOLDER/sql_2.py', '--cfg-path', '/tmp/tmp38cwedf7']
+[2024-07-10T08:36:20.447+0000] {standard_task_runner.py:91} INFO - Job 363: Subtask scrap_new_data
+[2024-07-10T08:36:20.465+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.scrap_new_data manual__2024-07-10T08:36:18.314404+00:00 [running]> on host 10d335c2a089
+[2024-07-10T08:36:20.499+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='scrap_new_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-10T08:36:18.314404+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-10T08:36:18.314404+00:00'
+[2024-07-10T08:36:20.500+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-10T08:36:20.951+0000] {warnings.py:112} WARNING - /opt/***/dags/sql_2.py:57: GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 57 of the file /opt/***/dags/sql_2.py. To get rid of this warning, pass the additional argument 'features="lxml"' to the BeautifulSoup constructor.
+
+  soup = BeautifulSoup(html)
+
+[2024-07-10T08:36:21.178+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-07-10T08:36:21.178+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-10T08:36:21.182+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=scrap_new_data, run_id=manual__2024-07-10T08:36:18.314404+00:00, execution_date=20240710T083618, start_date=20240710T083620, end_date=20240710T083621
+[2024-07-10T08:36:21.192+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-10T08:36:21.203+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-10T08:36:21.203+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

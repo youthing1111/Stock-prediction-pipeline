@@ -1,0 +1,59 @@
+[2025-02-02T16:25:22.277+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-02-02T16:25:22.285+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.plot manual__2025-02-02T16:25:00.781173+00:00 [queued]>
+[2025-02-02T16:25:22.288+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.plot manual__2025-02-02T16:25:00.781173+00:00 [queued]>
+[2025-02-02T16:25:22.288+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-02-02T16:25:22.292+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): plot> on 2025-02-02 16:25:00.781173+00:00
+[2025-02-02T16:25:22.297+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=1198) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-02-02T16:25:22.298+0000] {standard_task_runner.py:64} INFO - Started process 1205 to run task
+[2025-02-02T16:25:22.298+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'plot', 'manual__2025-02-02T16:25:00.781173+00:00', '--job-id', '1519', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmp86r2uzix']
+[2025-02-02T16:25:22.299+0000] {standard_task_runner.py:91} INFO - Job 1519: Subtask plot
+[2025-02-02T16:25:22.314+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.plot manual__2025-02-02T16:25:00.781173+00:00 [running]> on host b7aba691e1ff
+[2025-02-02T16:25:22.344+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='plot' AIRFLOW_CTX_EXECUTION_DATE='2025-02-02T16:25:00.781173+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-02T16:25:00.781173+00:00'
+[2025-02-02T16:25:22.344+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-02-02T16:25:22.363+0000] {logging_mixin.py:188} INFO -            DATE    CLOSE
+0    2022-12-30  15366.0
+1    2023-01-03  15927.0
+2    2023-01-04  15892.0
+3    2023-01-05  16033.0
+4    2023-01-06  16243.0
+..          ...      ...
+183  2025-01-20  25000.0
+184  2025-01-21  24950.0
+185  2025-01-22  24850.0
+186  2025-01-23  25300.0
+187  2025-02-02  25350.0
+
+[188 rows x 2 columns]
+[2025-02-02T16:25:22.368+0000] {logging_mixin.py:188} INFO - 2025-02-02
+[2025-02-02T16:25:22.369+0000] {logging_mixin.py:188} INFO - 2025-02-03 00:00:00
+[2025-02-02T16:25:22.370+0000] {logging_mixin.py:188} INFO -                      pred_index
+2025-02-02              25350.0
+2025-02-03 00:00:00     25260.0
+[2025-02-02T16:25:22.373+0000] {logging_mixin.py:188} INFO -             pred_index
+2025-02-02     25350.0
+2025-02-03     25260.0
+[2025-02-02T16:25:22.375+0000] {logging_mixin.py:188} INFO -        CLOSE        DATE
+0    15366.0  2022-12-30
+1    15927.0  2023-01-03
+2    15892.0  2023-01-04
+3    16033.0  2023-01-05
+4    16243.0  2023-01-06
+..       ...         ...
+183  25000.0  2025-01-20
+184  24950.0  2025-01-21
+185  24850.0  2025-01-22
+186  25300.0  2025-01-23
+187  25350.0  2025-02-02
+
+[188 rows x 2 columns]
+[2025-02-02T16:25:22.376+0000] {logging_mixin.py:188} INFO -    pred_index        date
+0     25350.0  2025-02-02
+1     25260.0  2025-02-03
+[2025-02-02T16:25:22.486+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-02-02T16:25:22.486+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-02-02T16:25:22.489+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=plot, run_id=manual__2025-02-02T16:25:00.781173+00:00, execution_date=20250202T162500, start_date=20250202T162522, end_date=20250202T162522
+[2025-02-02T16:25:22.518+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-02-02T16:25:22.527+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-02T16:25:22.527+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

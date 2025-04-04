@@ -1,0 +1,1076 @@
+[2024-08-07T07:46:20.082+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-07T07:46:20.091+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: test.pred_Categorical manual__2024-08-07T07:46:17.375894+00:00 [queued]>
+[2024-08-07T07:46:20.093+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: test.pred_Categorical manual__2024-08-07T07:46:17.375894+00:00 [queued]>
+[2024-08-07T07:46:20.093+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-07T07:46:20.099+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): pred_Categorical> on 2024-08-07 07:46:17.375894+00:00
+[2024-08-07T07:46:20.103+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=1558) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-07T07:46:20.103+0000] {standard_task_runner.py:64} INFO - Started process 1569 to run task
+[2024-08-07T07:46:20.104+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'test', 'pred_Categorical', 'manual__2024-08-07T07:46:17.375894+00:00', '--job-id', '858', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmptp6d8ne0']
+[2024-08-07T07:46:20.105+0000] {standard_task_runner.py:91} INFO - Job 858: Subtask pred_Categorical
+[2024-08-07T07:46:20.122+0000] {task_command.py:426} INFO - Running <TaskInstance: test.pred_Categorical manual__2024-08-07T07:46:17.375894+00:00 [running]> on host de0da25eb647
+[2024-08-07T07:46:20.149+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='test' AIRFLOW_CTX_TASK_ID='pred_Categorical' AIRFLOW_CTX_EXECUTION_DATE='2024-08-07T07:46:17.375894+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-07T07:46:17.375894+00:00'
+[2024-08-07T07:46:20.149+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-07T07:46:20.204+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,204 botocore.hooks [DEBUG] Event before-parameter-build.s3.CreateBucket: calling handler <function validate_bucket_name at 0xffff78c66520>
+[2024-08-07T07:46:20.204+0000] {hooks.py:238} DEBUG - Event before-parameter-build.s3.CreateBucket: calling handler <function validate_bucket_name at 0xffff78c66520>
+[2024-08-07T07:46:20.205+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,205 botocore.hooks [DEBUG] Event before-parameter-build.s3.CreateBucket: calling handler <function remove_bucket_from_url_paths_from_model at 0xffff78c84720>
+[2024-08-07T07:46:20.205+0000] {hooks.py:238} DEBUG - Event before-parameter-build.s3.CreateBucket: calling handler <function remove_bucket_from_url_paths_from_model at 0xffff78c84720>
+[2024-08-07T07:46:20.205+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,205 botocore.hooks [DEBUG] Event before-parameter-build.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.205+0000] {hooks.py:238} DEBUG - Event before-parameter-build.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.annotate_request_context of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.205+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,205 botocore.hooks [DEBUG] Event before-parameter-build.s3.CreateBucket: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:20.205+0000] {hooks.py:238} DEBUG - Event before-parameter-build.s3.CreateBucket: calling handler <bound method ClientCreator._inject_s3_input_parameters of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:20.206+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,206 botocore.hooks [DEBUG] Event before-parameter-build.s3.CreateBucket: calling handler <function generate_idempotent_uuid at 0xffff78c66340>
+[2024-08-07T07:46:20.206+0000] {hooks.py:238} DEBUG - Event before-parameter-build.s3.CreateBucket: calling handler <function generate_idempotent_uuid at 0xffff78c66340>
+[2024-08-07T07:46:20.206+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,206 botocore.hooks [DEBUG] Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0xffff78c84900>
+[2024-08-07T07:46:20.206+0000] {hooks.py:238} DEBUG - Event before-endpoint-resolution.s3: calling handler <function customize_endpoint_resolver_builtins at 0xffff78c84900>
+[2024-08-07T07:46:20.206+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,206 botocore.hooks [DEBUG] Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.206+0000] {hooks.py:238} DEBUG - Event before-endpoint-resolution.s3: calling handler <bound method S3RegionRedirectorv2.redirect_from_cache of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.207+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,207 botocore.regions [DEBUG] Calling endpoint provider with parameters: {'Bucket': 'my-bucket-name', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'Endpoint': 'http://host.docker.internal:9000', 'ForcePathStyle': True, 'Accelerate': False, 'UseGlobalEndpoint': True, 'DisableAccessPoints': True, 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True, 'UseS3ExpressControlEndpoint': True}
+[2024-08-07T07:46:20.207+0000] {regions.py:498} DEBUG - Calling endpoint provider with parameters: {'Bucket': 'my-bucket-name', 'Region': 'us-east-1', 'UseFIPS': False, 'UseDualStack': False, 'Endpoint': 'http://host.docker.internal:9000', 'ForcePathStyle': True, 'Accelerate': False, 'UseGlobalEndpoint': True, 'DisableAccessPoints': True, 'DisableMultiRegionAccessPoints': False, 'UseArnRegion': True, 'UseS3ExpressControlEndpoint': True}
+[2024-08-07T07:46:20.208+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,208 botocore.regions [DEBUG] Endpoint provider result: http://host.docker.internal:9000/my-bucket-name
+[2024-08-07T07:46:20.208+0000] {regions.py:513} DEBUG - Endpoint provider result: http://host.docker.internal:9000/my-bucket-name
+[2024-08-07T07:46:20.208+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,208 botocore.regions [DEBUG] Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[2024-08-07T07:46:20.208+0000] {regions.py:660} DEBUG - Selecting from endpoint provider's list of auth schemes: "sigv4". User selected auth scheme is: "None"
+[2024-08-07T07:46:20.208+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,208 botocore.regions [DEBUG] Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[2024-08-07T07:46:20.208+0000] {regions.py:733} DEBUG - Selected auth type "v4" as "v4" with signing context params: {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}
+[2024-08-07T07:46:20.209+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,209 botocore.hooks [DEBUG] Event before-call.s3.CreateBucket: calling handler <function add_expect_header at 0xffff78c668e0>
+[2024-08-07T07:46:20.209+0000] {hooks.py:238} DEBUG - Event before-call.s3.CreateBucket: calling handler <function add_expect_header at 0xffff78c668e0>
+[2024-08-07T07:46:20.209+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,209 botocore.hooks [DEBUG] Event before-call.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:20.209+0000] {hooks.py:238} DEBUG - Event before-call.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.apply_signing_cache_key of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:20.209+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,209 botocore.hooks [DEBUG] Event before-call.s3.CreateBucket: calling handler <function add_recursion_detection_header at 0xffff78c65800>
+[2024-08-07T07:46:20.209+0000] {hooks.py:238} DEBUG - Event before-call.s3.CreateBucket: calling handler <function add_recursion_detection_header at 0xffff78c65800>
+[2024-08-07T07:46:20.210+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,210 botocore.hooks [DEBUG] Event before-call.s3.CreateBucket: calling handler <function inject_api_version_header_if_needed at 0xffff78c67e20>
+[2024-08-07T07:46:20.210+0000] {hooks.py:238} DEBUG - Event before-call.s3.CreateBucket: calling handler <function inject_api_version_header_if_needed at 0xffff78c67e20>
+[2024-08-07T07:46:20.210+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,210 botocore.endpoint [DEBUG] Making request for OperationModel(name=CreateBucket) with params: {'url_path': '', 'query_string': {}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource'}, 'body': b'', 'auth_path': '/my-bucket-name/', 'url': 'http://host.docker.internal:9000/my-bucket-name', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0xffffa6e74aa0>, 'has_streaming_input': False, 'auth_type': 'v4', 's3_redirect': {'redirected': False, 'bucket': 'my-bucket-name', 'params': {'Bucket': 'my-bucket-name'}}, 'input_params': {'Bucket': 'my-bucket-name'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}}}
+[2024-08-07T07:46:20.210+0000] {endpoint.py:114} DEBUG - Making request for OperationModel(name=CreateBucket) with params: {'url_path': '', 'query_string': {}, 'method': 'PUT', 'headers': {'User-Agent': 'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource'}, 'body': b'', 'auth_path': '/my-bucket-name/', 'url': 'http://host.docker.internal:9000/my-bucket-name', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0xffffa6e74aa0>, 'has_streaming_input': False, 'auth_type': 'v4', 's3_redirect': {'redirected': False, 'bucket': 'my-bucket-name', 'params': {'Bucket': 'my-bucket-name'}}, 'input_params': {'Bucket': 'my-bucket-name'}, 'signing': {'region': 'us-east-1', 'signing_name': 's3', 'disableDoubleEncoding': True}, 'endpoint_properties': {'authSchemes': [{'disableDoubleEncoding': True, 'name': 'sigv4', 'signingName': 's3', 'signingRegion': 'us-east-1'}]}}}
+[2024-08-07T07:46:20.211+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,211 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:20.211+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:20.211+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,211 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:20.211+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:20.211+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,211 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:20.211+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:20.212+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,212 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:20.212+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:20.212+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,212 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:20.212+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:20.213+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,213 botocore.auth [DEBUG] Calculating signature using v4 auth.
+[2024-08-07T07:46:20.213+0000] {auth.py:425} DEBUG - Calculating signature using v4 auth.
+[2024-08-07T07:46:20.213+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,213 botocore.auth [DEBUG] CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074620Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:20.213+0000] {auth.py:426} DEBUG - CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074620Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:20.213+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,213 botocore.auth [DEBUG] StringToSign:
+AWS4-HMAC-SHA256
+20240807T074620Z
+20240807/us-east-1/s3/aws4_request
+d7be69e95b97c957152bfa7364e003c0f827009c152f2cfe2b9283f405e52010
+[2024-08-07T07:46:20.213+0000] {auth.py:428} DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20240807T074620Z
+20240807/us-east-1/s3/aws4_request
+d7be69e95b97c957152bfa7364e003c0f827009c152f2cfe2b9283f405e52010
+[2024-08-07T07:46:20.214+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,214 botocore.auth [DEBUG] Signature:
+31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50
+[2024-08-07T07:46:20.214+0000] {auth.py:430} DEBUG - Signature:
+31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50
+[2024-08-07T07:46:20.214+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,214 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:20.214+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:20.215+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,214 botocore.endpoint [DEBUG] Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074620Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=1', 'Content-Length': '0'}>
+[2024-08-07T07:46:20.214+0000] {endpoint.py:265} DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074620Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=1', 'Content-Length': '0'}>
+[2024-08-07T07:46:20.219+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,219 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:20.219+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:20.221+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,219 botocore.retryhandler [DEBUG] retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:20.219+0000] {retryhandler.py:311} DEBUG - retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:20.222+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,222 botocore.retryhandler [DEBUG] Retry needed, action of: 0.4864107704499334
+[2024-08-07T07:46:20.222+0000] {retryhandler.py:209} DEBUG - Retry needed, action of: 0.4864107704499334
+[2024-08-07T07:46:20.225+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,225 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.225+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.225+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,225 botocore.endpoint [DEBUG] Response received to retry, sleeping for 0.4864107704499334 seconds
+[2024-08-07T07:46:20.225+0000] {endpoint.py:369} DEBUG - Response received to retry, sleeping for 0.4864107704499334 seconds
+[2024-08-07T07:46:20.715+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,714 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:20.714+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:20.717+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,717 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:20.717+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:20.718+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,718 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:20.718+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:20.719+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,719 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:20.719+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:20.720+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,720 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:20.720+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:20.722+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,722 botocore.auth [DEBUG] Calculating signature using v4 auth.
+[2024-08-07T07:46:20.722+0000] {auth.py:425} DEBUG - Calculating signature using v4 auth.
+[2024-08-07T07:46:20.723+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,723 botocore.auth [DEBUG] CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074620Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:20.723+0000] {auth.py:426} DEBUG - CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074620Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:20.724+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,724 botocore.auth [DEBUG] StringToSign:
+AWS4-HMAC-SHA256
+20240807T074620Z
+20240807/us-east-1/s3/aws4_request
+d7be69e95b97c957152bfa7364e003c0f827009c152f2cfe2b9283f405e52010
+[2024-08-07T07:46:20.724+0000] {auth.py:428} DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20240807T074620Z
+20240807/us-east-1/s3/aws4_request
+d7be69e95b97c957152bfa7364e003c0f827009c152f2cfe2b9283f405e52010
+[2024-08-07T07:46:20.725+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,725 botocore.auth [DEBUG] Signature:
+31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50
+[2024-08-07T07:46:20.725+0000] {auth.py:430} DEBUG - Signature:
+31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50
+[2024-08-07T07:46:20.726+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,726 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:20.726+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:20.727+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,727 botocore.endpoint [DEBUG] Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074620Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=2; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:20.727+0000] {endpoint.py:265} DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074620Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=31d432ca0b8b4da9fe17d86c4c47b11e34eec5955fd8658a97e9ed5f0d28bd50', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=2; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:20.736+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,736 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:20.736+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:20.739+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,737 botocore.retryhandler [DEBUG] retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:20.737+0000] {retryhandler.py:311} DEBUG - retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:20.741+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,741 botocore.retryhandler [DEBUG] Retry needed, action of: 1.5545738060631586
+[2024-08-07T07:46:20.741+0000] {retryhandler.py:209} DEBUG - Retry needed, action of: 1.5545738060631586
+[2024-08-07T07:46:20.742+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,741 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.741+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:20.742+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:20,742 botocore.endpoint [DEBUG] Response received to retry, sleeping for 1.5545738060631586 seconds
+[2024-08-07T07:46:20.742+0000] {endpoint.py:369} DEBUG - Response received to retry, sleeping for 1.5545738060631586 seconds
+[2024-08-07T07:46:22.303+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,302 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:22.302+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:22.306+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,306 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:22.306+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:22.308+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,308 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:22.308+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:22.310+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,310 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:22.310+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:22.312+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,312 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:22.312+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:22.314+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,314 botocore.auth [DEBUG] Calculating signature using v4 auth.
+[2024-08-07T07:46:22.314+0000] {auth.py:425} DEBUG - Calculating signature using v4 auth.
+[2024-08-07T07:46:22.315+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,315 botocore.auth [DEBUG] CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074622Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:22.315+0000] {auth.py:426} DEBUG - CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074622Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:22.316+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,316 botocore.auth [DEBUG] StringToSign:
+AWS4-HMAC-SHA256
+20240807T074622Z
+20240807/us-east-1/s3/aws4_request
+f41bba1387a04c03ac961131f372c1d030af4dd640e4449f13bc5ba3c28ac199
+[2024-08-07T07:46:22.316+0000] {auth.py:428} DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20240807T074622Z
+20240807/us-east-1/s3/aws4_request
+f41bba1387a04c03ac961131f372c1d030af4dd640e4449f13bc5ba3c28ac199
+[2024-08-07T07:46:22.317+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,317 botocore.auth [DEBUG] Signature:
+f357a0a262961a91f5738dc438b998dd2e71dabe96bce1fb08e017a42e0360c7
+[2024-08-07T07:46:22.317+0000] {auth.py:430} DEBUG - Signature:
+f357a0a262961a91f5738dc438b998dd2e71dabe96bce1fb08e017a42e0360c7
+[2024-08-07T07:46:22.318+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,318 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:22.318+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:22.319+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,319 botocore.endpoint [DEBUG] Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074622Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=f357a0a262961a91f5738dc438b998dd2e71dabe96bce1fb08e017a42e0360c7', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=3; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:22.319+0000] {endpoint.py:265} DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074622Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=f357a0a262961a91f5738dc438b998dd2e71dabe96bce1fb08e017a42e0360c7', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=3; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:22.327+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,327 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:22.327+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:22.330+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,328 botocore.retryhandler [DEBUG] retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:22.328+0000] {retryhandler.py:311} DEBUG - retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:22.332+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,332 botocore.retryhandler [DEBUG] Retry needed, action of: 2.2145410225063498
+[2024-08-07T07:46:22.332+0000] {retryhandler.py:209} DEBUG - Retry needed, action of: 2.2145410225063498
+[2024-08-07T07:46:22.333+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,333 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:22.333+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:22.334+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:22,334 botocore.endpoint [DEBUG] Response received to retry, sleeping for 2.2145410225063498 seconds
+[2024-08-07T07:46:22.334+0000] {endpoint.py:369} DEBUG - Response received to retry, sleeping for 2.2145410225063498 seconds
+[2024-08-07T07:46:24.553+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,553 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:24.553+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:24.554+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,554 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:24.554+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:24.554+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,554 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:24.554+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:24.555+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,555 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:24.555+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:24.555+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,555 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:24.555+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:24.556+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,556 botocore.auth [DEBUG] Calculating signature using v4 auth.
+[2024-08-07T07:46:24.556+0000] {auth.py:425} DEBUG - Calculating signature using v4 auth.
+[2024-08-07T07:46:24.556+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,556 botocore.auth [DEBUG] CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074624Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:24.556+0000] {auth.py:426} DEBUG - CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074624Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:24.556+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,556 botocore.auth [DEBUG] StringToSign:
+AWS4-HMAC-SHA256
+20240807T074624Z
+20240807/us-east-1/s3/aws4_request
+d27b92ba642dbf688111b99c743c79294aeb46e755fc14c6e5bd4ce86e62ca69
+[2024-08-07T07:46:24.556+0000] {auth.py:428} DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20240807T074624Z
+20240807/us-east-1/s3/aws4_request
+d27b92ba642dbf688111b99c743c79294aeb46e755fc14c6e5bd4ce86e62ca69
+[2024-08-07T07:46:24.557+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,557 botocore.auth [DEBUG] Signature:
+b14de058973475d60a35db9065629d728c12f8ce661e2ae85842d7e4520880d0
+[2024-08-07T07:46:24.557+0000] {auth.py:430} DEBUG - Signature:
+b14de058973475d60a35db9065629d728c12f8ce661e2ae85842d7e4520880d0
+[2024-08-07T07:46:24.557+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,557 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:24.557+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:24.558+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,558 botocore.endpoint [DEBUG] Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074624Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b14de058973475d60a35db9065629d728c12f8ce661e2ae85842d7e4520880d0', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=4; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:24.558+0000] {endpoint.py:265} DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074624Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=b14de058973475d60a35db9065629d728c12f8ce661e2ae85842d7e4520880d0', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=4; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:24.560+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,560 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:24.560+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:24.562+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,561 botocore.retryhandler [DEBUG] retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/***/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:24.561+0000] {retryhandler.py:311} DEBUG - retry needed, retryable exception caught: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 307, in _should_retry
+    return self._checker(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:24.562+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,562 botocore.retryhandler [DEBUG] Retry needed, action of: 2.4271964032851754
+[2024-08-07T07:46:24.562+0000] {retryhandler.py:209} DEBUG - Retry needed, action of: 2.4271964032851754
+[2024-08-07T07:46:24.562+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,562 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:24.562+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <bound method S3RegionRedirectorv2.redirect_from_error of <botocore.utils.S3RegionRedirectorv2 object at 0xffffa6eeef90>>
+[2024-08-07T07:46:24.563+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:24,563 botocore.endpoint [DEBUG] Response received to retry, sleeping for 2.4271964032851754 seconds
+[2024-08-07T07:46:24.563+0000] {endpoint.py:369} DEBUG - Response received to retry, sleeping for 2.4271964032851754 seconds
+[2024-08-07T07:46:26.996+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:26,996 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:26.996+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0xffffa6e746b0>>
+[2024-08-07T07:46:26.998+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:26,998 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:26.998+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0xffffab1c0350>>
+[2024-08-07T07:46:26.999+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:26,999 botocore.hooks [DEBUG] Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:26.999+0000] {hooks.py:238} DEBUG - Event choose-signer.s3.CreateBucket: calling handler <function set_operation_specific_signer at 0xffff78c66200>
+[2024-08-07T07:46:27.000+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,000 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:27.000+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <function remove_arn_from_signing_path at 0xffff78c84860>
+[2024-08-07T07:46:27.000+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,000 botocore.hooks [DEBUG] Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:27.000+0000] {hooks.py:238} DEBUG - Event before-sign.s3.CreateBucket: calling handler <bound method S3ExpressIdentityResolver.resolve_s3express_identity of <botocore.utils.S3ExpressIdentityResolver object at 0xffffa6eefe30>>
+[2024-08-07T07:46:27.001+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,001 botocore.auth [DEBUG] Calculating signature using v4 auth.
+[2024-08-07T07:46:27.001+0000] {auth.py:425} DEBUG - Calculating signature using v4 auth.
+[2024-08-07T07:46:27.002+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,002 botocore.auth [DEBUG] CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074627Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:27.002+0000] {auth.py:426} DEBUG - CanonicalRequest:
+PUT
+/my-bucket-name
+
+host:host.docker.internal:9000
+x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+x-amz-date:20240807T074627Z
+
+host;x-amz-content-sha256;x-amz-date
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+[2024-08-07T07:46:27.002+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,002 botocore.auth [DEBUG] StringToSign:
+AWS4-HMAC-SHA256
+20240807T074627Z
+20240807/us-east-1/s3/aws4_request
+f430e88e2803e1dcd41388eb1183b331d4eadbd1aa79e01792d3330101c9db40
+[2024-08-07T07:46:27.002+0000] {auth.py:428} DEBUG - StringToSign:
+AWS4-HMAC-SHA256
+20240807T074627Z
+20240807/us-east-1/s3/aws4_request
+f430e88e2803e1dcd41388eb1183b331d4eadbd1aa79e01792d3330101c9db40
+[2024-08-07T07:46:27.003+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,003 botocore.auth [DEBUG] Signature:
+824fe7a91bcce626cf85f10e9ad9c684e84a8d59b1026e020c44ec58faf4bcfe
+[2024-08-07T07:46:27.003+0000] {auth.py:430} DEBUG - Signature:
+824fe7a91bcce626cf85f10e9ad9c684e84a8d59b1026e020c44ec58faf4bcfe
+[2024-08-07T07:46:27.004+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,004 botocore.hooks [DEBUG] Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:27.004+0000] {hooks.py:238} DEBUG - Event request-created.s3.CreateBucket: calling handler <function add_retry_headers at 0xffff78c84680>
+[2024-08-07T07:46:27.004+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,004 botocore.endpoint [DEBUG] Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074627Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=824fe7a91bcce626cf85f10e9ad9c684e84a8d59b1026e020c44ec58faf4bcfe', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=5; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:27.004+0000] {endpoint.py:265} DEBUG - Sending http request: <AWSPreparedRequest stream_output=False, method=PUT, url=http://host.docker.internal:9000/my-bucket-name, headers={'User-Agent': b'Boto3/1.34.131 md/Botocore#1.34.131 ua/2.0 os/linux#6.6.26-linuxkit md/arch#aarch64 lang/python#3.12.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.131 Resource', 'X-Amz-Date': b'20240807T074627Z', 'X-Amz-Content-SHA256': b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'Authorization': b'AWS4-HMAC-SHA256 Credential=kiIxDzwTdJOxY2GxPJs3/20240807/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=824fe7a91bcce626cf85f10e9ad9c684e84a8d59b1026e020c44ec58faf4bcfe', 'amz-sdk-invocation-id': b'ef17b15b-1413-45ba-9c41-bd14d08ba8d8', 'amz-sdk-request': b'attempt=5; max=5', 'Content-Length': '0'}>
+[2024-08-07T07:46:27.008+0000] {logging_mixin.py:188} WARNING - 2024-08-07 07:46:27,008 botocore.hooks [DEBUG] Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:27.008+0000] {hooks.py:238} DEBUG - Event needs-retry.s3.CreateBucket: calling handler <botocore.retryhandler.RetryHandler object at 0xffffa6eefe00>
+[2024-08-07T07:46:27.009+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-07T07:46:27.010+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+http.client.BadStatusLine: ÿ       dntity
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 464, in send
+    urllib_response = conn.urlopen(
+                      ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/retry.py", line 445, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/util/util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 1428, in getresponse
+    response.begin()
+  File "/usr/local/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/http/client.py", line 313, in _read_status
+    raise BadStatusLine(line)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', BadStatusLine('ÿ\x00\x00\x00\x00\x00\x00\x00\x01\x7fd\x01ntity\r\n'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/test.py", line 43, in pred_Categorical
+    s3.create_bucket(Bucket='my-bucket-name')
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/resources/factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/resources/action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 565, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1001, in _make_api_call
+    http, parsed_response = self._make_request(
+                            ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1027, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 202, in _send_request
+    while self._needs_retry(
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 354, in _needs_retry
+    responses = self._event_emitter.emit(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+               ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 207, in __call__
+    if self._checker(**checker_kwargs):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 284, in __call__
+    should_retry = self._should_retry(
+                   ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 320, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+                       ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/httpsession.py", line 503, in send
+    raise ConnectionClosedError(
+botocore.exceptions.ConnectionClosedError: Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".
+[2024-08-07T07:46:27.020+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=test, task_id=pred_Categorical, run_id=manual__2024-08-07T07:46:17.375894+00:00, execution_date=20240807T074617, start_date=20240807T074620, end_date=20240807T074627
+[2024-08-07T07:46:27.027+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 858 for task pred_Categorical (Connection was closed before we received a valid response from endpoint URL: "http://host.docker.internal:9000/my-bucket-name".; 1569)
+[2024-08-07T07:46:27.038+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-07T07:46:27.047+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-07T07:46:27.047+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

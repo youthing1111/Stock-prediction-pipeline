@@ -1,0 +1,24 @@
+[2024-08-05T07:38:00.172+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-05T07:38:00.183+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_Categorical scheduled__2024-07-31T13:30:00+00:00 [queued]>
+[2024-08-05T07:38:00.186+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_Categorical scheduled__2024-07-31T13:30:00+00:00 [queued]>
+[2024-08-05T07:38:00.186+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-05T07:38:00.192+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): pred_Categorical> on 2024-07-31 13:30:00+00:00
+[2024-08-05T07:38:00.197+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=367) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-05T07:38:00.200+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'pred_Categorical', 'scheduled__2024-07-31T13:30:00+00:00', '--job-id', '697', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmp0warvd3l']
+[2024-08-05T07:38:00.200+0000] {standard_task_runner.py:64} INFO - Started process 412 to run task
+[2024-08-05T07:38:00.201+0000] {standard_task_runner.py:91} INFO - Job 697: Subtask pred_Categorical
+[2024-08-05T07:38:00.224+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.pred_Categorical scheduled__2024-07-31T13:30:00+00:00 [running]> on host b6b4a3e7bf9d
+[2024-08-05T07:38:00.264+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='pred_Categorical' AIRFLOW_CTX_EXECUTION_DATE='2024-07-31T13:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-31T13:30:00+00:00'
+[2024-08-05T07:38:00.268+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-05T07:38:00.740+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/sklearn/base.py:376: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.4.1.post1 when using version 1.5.1. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+
+[2024-08-05T07:38:00.808+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-05T07:38:00.808+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-05T07:38:00.813+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=pred_Categorical, run_id=scheduled__2024-07-31T13:30:00+00:00, execution_date=20240731T133000, start_date=20240805T073800, end_date=20240805T073800
+[2024-08-05T07:38:00.831+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-05T07:38:00.843+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-05T07:38:00.844+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

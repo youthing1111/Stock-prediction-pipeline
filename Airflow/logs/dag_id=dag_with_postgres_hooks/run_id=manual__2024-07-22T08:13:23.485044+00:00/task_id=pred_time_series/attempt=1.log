@@ -1,0 +1,103 @@
+[2024-07-22T08:13:41.459+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-22T08:13:41.467+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_time_series manual__2024-07-22T08:13:23.485044+00:00 [queued]>
+[2024-07-22T08:13:41.470+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_time_series manual__2024-07-22T08:13:23.485044+00:00 [queued]>
+[2024-07-22T08:13:41.470+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-22T08:13:41.475+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): pred_time_series> on 2024-07-22 08:13:23.485044+00:00
+[2024-07-22T08:13:41.479+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=1827) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-22T08:13:41.479+0000] {standard_task_runner.py:64} INFO - Started process 1838 to run task
+[2024-07-22T08:13:41.480+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'pred_time_series', 'manual__2024-07-22T08:13:23.485044+00:00', '--job-id', '433', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmp45tsqk_4']
+[2024-07-22T08:13:41.480+0000] {standard_task_runner.py:91} INFO - Job 433: Subtask pred_time_series
+[2024-07-22T08:13:41.495+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.pred_time_series manual__2024-07-22T08:13:23.485044+00:00 [running]> on host d89911194c67
+[2024-07-22T08:13:41.523+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='pred_time_series' AIRFLOW_CTX_EXECUTION_DATE='2024-07-22T08:13:23.485044+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-22T08:13:23.485044+00:00'
+[2024-07-22T08:13:41.524+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-22T08:13:41.543+0000] {logging_mixin.py:188} INFO -      date        CLOSE
+0     NaN  8293,711328
+1     NaN  8293,711328
+2     NaN  8293,711328
+3     NaN  8570,168372
+4     NaN   8466,49698
+..    ...          ...
+995   NaN        23950
+996   NaN        24100
+997   NaN        24500
+998   NaN        24800
+999   NaN        25100
+
+[1000 rows x 2 columns] date     float64
+CLOSE     object
+dtype: object
+[2024-07-22T08:13:41.545+0000] {logging_mixin.py:188} INFO -      date         CLOSE
+0     NaN   8293.711328
+1     NaN   8293.711328
+2     NaN   8293.711328
+3     NaN   8570.168372
+4     NaN   8466.496980
+..    ...           ...
+995   NaN  23950.000000
+996   NaN  24100.000000
+997   NaN  24500.000000
+998   NaN  24800.000000
+999   NaN  25100.000000
+
+[1000 rows x 2 columns] date     float64
+CLOSE    float64
+dtype: object
+[2024-07-22T08:13:41.602+0000] {logging_mixin.py:188} INFO -      CLOSE
+0  24750.0 CLOSE    float64
+dtype: object
+[2024-07-22T08:13:41.605+0000] {logging_mixin.py:188} INFO -             CLOSE
+NaN   8293.711328
+NaN   8293.711328
+NaN   8293.711328
+NaN   8570.168372
+NaN   8466.496980
+..            ...
+NaN  24100.000000
+NaN  24500.000000
+NaN  24800.000000
+NaN  25100.000000
+0.0  24750.000000
+
+[1001 rows x 1 columns]
+[2024-07-22T08:13:41.612+0000] {base.py:84} INFO - Using connection ID 'postgres_server_2' for task execution.
+[2024-07-22T08:13:41.614+0000] {logging_mixin.py:188} INFO -                    CLOSE
+NaT          8293.711328
+NaT          8570.168372
+NaT          8466.496980
+NaT          8501.054111
+NaT          8431.939850
+...                  ...
+NaT         24250.000000
+NaT         24300.000000
+NaT         24000.000000
+NaT         25100.000000
+2024-07-22  24750.000000
+
+[450 rows x 1 columns]
+[2024-07-22T08:13:41.616+0000] {logging_mixin.py:188} INFO -                    CLOSE  CLOSE_diff1
+NaT          8293.711328          NaN
+NaT          8570.168372   276.457044
+NaT          8466.496980  -103.671392
+NaT          8501.054111    34.557131
+NaT          8431.939850   -69.114261
+...                  ...          ...
+NaT         24250.000000   450.000000
+NaT         24300.000000    50.000000
+NaT         24000.000000  -300.000000
+NaT         25100.000000  1100.000000
+2024-07-22  24750.000000  -350.000000
+
+[450 rows x 2 columns]
+[2024-07-22T08:13:41.679+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/keras/src/saving/saving_lib.py:576: UserWarning: Skipping variable loading for optimizer 'rmsprop', because it has 7 variables whereas the saved optimizer has 12 variables. 
+  saveable.load_own_variables(weights_store.get(inner_path))
+
+[2024-07-22T08:13:41.759+0000] {logging_mixin.py:188} INFO - 1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 57ms/step
+[2024-07-22T08:13:41.759+0000] {logging_mixin.py:188} INFO - 1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 57ms/step
+[2024-07-22T08:13:41.766+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-07-22T08:13:41.766+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-22T08:13:41.769+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=pred_time_series, run_id=manual__2024-07-22T08:13:23.485044+00:00, execution_date=20240722T081323, start_date=20240722T081341, end_date=20240722T081341
+[2024-07-22T08:13:41.786+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-22T08:13:41.796+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-07-22T08:13:41.796+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

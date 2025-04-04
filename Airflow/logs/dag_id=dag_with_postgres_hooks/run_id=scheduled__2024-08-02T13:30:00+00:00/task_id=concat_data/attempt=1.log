@@ -1,0 +1,52 @@
+[2024-08-05T07:37:52.917+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-05T07:37:52.928+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.concat_data scheduled__2024-08-02T13:30:00+00:00 [queued]>
+[2024-08-05T07:37:52.931+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.concat_data scheduled__2024-08-02T13:30:00+00:00 [queued]>
+[2024-08-05T07:37:52.931+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-05T07:37:52.936+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): concat_data> on 2024-08-02 13:30:00+00:00
+[2024-08-05T07:37:52.941+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=189) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-05T07:37:52.943+0000] {standard_task_runner.py:64} INFO - Started process 233 to run task
+[2024-08-05T07:37:52.943+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'concat_data', 'scheduled__2024-08-02T13:30:00+00:00', '--job-id', '687', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmpn91clzl3']
+[2024-08-05T07:37:52.944+0000] {standard_task_runner.py:91} INFO - Job 687: Subtask concat_data
+[2024-08-05T07:37:52.969+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.concat_data scheduled__2024-08-02T13:30:00+00:00 [running]> on host b6b4a3e7bf9d
+[2024-08-05T07:37:53.013+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='concat_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-02T13:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-08-02T13:30:00+00:00'
+[2024-08-05T07:37:53.014+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-05T07:37:53.018+0000] {base.py:84} INFO - Using connection ID 'postgres_server_2' for task execution.
+[2024-08-05T07:37:53.044+0000] {logging_mixin.py:188} INFO -                OPEN     HIGH      LOW    CLOSE      VOLUME
+DATE                                                      
+14/07/2020   8259.0   8328.0   8190.0   8294.0   1406000.0
+15/07/2020   8363.0   8363.0   8294.0   8294.0   1644008.0
+16/07/2020   8363.0   8363.0   8259.0   8294.0    902900.0
+17/07/2020   8328.0   8639.0   8294.0   8570.0   7887000.0
+20/07/2020   8570.0   8605.0   8466.0   8466.0   2620940.0
+...             ...      ...      ...      ...         ...
+24/07/2024  24000.0  24400.0  23800.0  24200.0  12683401.0
+25/07/2024  24150.0  24150.0  23800.0  24050.0   8530700.0
+26/07/2024  24100.0  24150.0  24000.0  24100.0   3682400.0
+27/07/2024  24100.0  24150.0  24000.0  24100.0   3682400.0
+01/08/2024  25700.0  25750.0  25200.0  25350.0  12483900.0
+
+[1007 rows x 5 columns]
+[2024-08-05T07:37:53.095+0000] {logging_mixin.py:188} INFO -                OPEN     HIGH      LOW    CLOSE     VOLUME
+05/08/2024  27500.0  27650.0  27300.0  27550.0  7037701.0
+[2024-08-05T07:37:53.106+0000] {logging_mixin.py:188} INFO -             DATE     OPEN     HIGH      LOW    CLOSE      VOLUME
+0     14/07/2020   8259.0   8328.0   8190.0   8294.0   1406000.0
+1     15/07/2020   8363.0   8363.0   8294.0   8294.0   1644008.0
+2     16/07/2020   8363.0   8363.0   8259.0   8294.0    902900.0
+3     17/07/2020   8328.0   8639.0   8294.0   8570.0   7887000.0
+4     20/07/2020   8570.0   8605.0   8466.0   8466.0   2620940.0
+...          ...      ...      ...      ...      ...         ...
+1003  25/07/2024  24150.0  24150.0  23800.0  24050.0   8530700.0
+1004  26/07/2024  24100.0  24150.0  24000.0  24100.0   3682400.0
+1005  27/07/2024  24100.0  24150.0  24000.0  24100.0   3682400.0
+1006  01/08/2024  25700.0  25750.0  25200.0  25350.0  12483900.0
+1007  05/08/2024  27500.0  27650.0  27300.0  27550.0   7037701.0
+
+[1008 rows x 6 columns]
+[2024-08-05T07:37:53.177+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-05T07:37:53.177+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-05T07:37:53.181+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=concat_data, run_id=scheduled__2024-08-02T13:30:00+00:00, execution_date=20240802T133000, start_date=20240805T073752, end_date=20240805T073753
+[2024-08-05T07:37:53.205+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-05T07:37:53.218+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-05T07:37:53.219+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

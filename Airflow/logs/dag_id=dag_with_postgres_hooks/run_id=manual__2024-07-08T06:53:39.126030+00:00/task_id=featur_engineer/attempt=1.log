@@ -1,0 +1,51 @@
+[2024-07-08T06:53:43.664+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-08T06:53:43.672+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.featur_engineer manual__2024-07-08T06:53:39.126030+00:00 [queued]>
+[2024-07-08T06:53:43.675+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.featur_engineer manual__2024-07-08T06:53:39.126030+00:00 [queued]>
+[2024-07-08T06:53:43.675+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-08T06:53:43.680+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): featur_engineer> on 2024-07-08 06:53:39.126030+00:00
+[2024-07-08T06:53:43.683+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=602) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-08T06:53:43.683+0000] {standard_task_runner.py:63} INFO - Started process 611 to run task
+[2024-07-08T06:53:43.684+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'featur_engineer', 'manual__2024-07-08T06:53:39.126030+00:00', '--job-id', '306', '--raw', '--subdir', 'DAGS_FOLDER/sql_2.py', '--cfg-path', '/tmp/tmp76oeu83q']
+[2024-07-08T06:53:43.684+0000] {standard_task_runner.py:91} INFO - Job 306: Subtask featur_engineer
+[2024-07-08T06:53:43.699+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.featur_engineer manual__2024-07-08T06:53:39.126030+00:00 [running]> on host 10d335c2a089
+[2024-07-08T06:53:43.728+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='featur_engineer' AIRFLOW_CTX_EXECUTION_DATE='2024-07-08T06:53:39.126030+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-08T06:53:39.126030+00:00'
+[2024-07-08T06:53:43.728+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-08T06:53:44.488+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-08T06:53:44.489+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/sql_2.py", line 218, in transform_data
+    input.drop(columns=["Target","CLOSE_t+1_zscore"],inplace=True)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 5344, in drop
+    return super().drop(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4711, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/generic.py", line 4753, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 7000, in drop
+    raise KeyError(f"{labels[mask].tolist()} not found in axis")
+KeyError: "['CLOSE_t+1_zscore'] not found in axis"
+[2024-07-08T06:53:44.495+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=featur_engineer, run_id=manual__2024-07-08T06:53:39.126030+00:00, execution_date=20240708T065339, start_date=20240708T065343, end_date=20240708T065344
+[2024-07-08T06:53:44.501+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 306 for task featur_engineer ("['CLOSE_t+1_zscore'] not found in axis"; 611)
+[2024-07-08T06:53:44.541+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-08T06:53:44.551+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-08T06:53:44.553+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

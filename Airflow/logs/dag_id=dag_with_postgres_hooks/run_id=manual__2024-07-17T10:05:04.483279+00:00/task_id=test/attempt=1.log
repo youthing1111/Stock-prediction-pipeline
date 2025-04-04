@@ -1,0 +1,52 @@
+[2024-07-17T10:05:10.675+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-17T10:05:10.683+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.test manual__2024-07-17T10:05:04.483279+00:00 [queued]>
+[2024-07-17T10:05:10.686+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.test manual__2024-07-17T10:05:04.483279+00:00 [queued]>
+[2024-07-17T10:05:10.686+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-17T10:05:10.690+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): test> on 2024-07-17 10:05:04.483279+00:00
+[2024-07-17T10:05:10.693+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=1824) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-07-17T10:05:10.694+0000] {standard_task_runner.py:63} INFO - Started process 1833 to run task
+[2024-07-17T10:05:10.695+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'test', 'manual__2024-07-17T10:05:04.483279+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/sql_2.py', '--cfg-path', '/tmp/tmp338px2gz']
+[2024-07-17T10:05:10.695+0000] {standard_task_runner.py:91} INFO - Job 107: Subtask test
+[2024-07-17T10:05:10.712+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.test manual__2024-07-17T10:05:04.483279+00:00 [running]> on host 0c2114842aea
+[2024-07-17T10:05:10.739+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='test' AIRFLOW_CTX_EXECUTION_DATE='2024-07-17T10:05:04.483279+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-17T10:05:04.483279+00:00'
+[2024-07-17T10:05:10.740+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-17T10:05:11.722+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-17T10:05:11.724+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/sql_2.py", line 236, in test
+    bucket = s3.create_bucket(Bucket='my-bucket-name')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/resources/factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/resources/action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 565, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1021, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.
+[2024-07-17T10:05:11.743+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=test, run_id=manual__2024-07-17T10:05:04.483279+00:00, execution_date=20240717T100504, start_date=20240717T100510, end_date=20240717T100511
+[2024-07-17T10:05:11.756+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 107 for task test (An error occurred (InvalidAccessKeyId) when calling the CreateBucket operation: The AWS Access Key Id you provided does not exist in our records.; 1833)
+[2024-07-17T10:05:11.802+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-17T10:05:11.813+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-17T10:05:11.814+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

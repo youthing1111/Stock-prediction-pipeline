@@ -1,0 +1,5 @@
+[2025-04-04T10:47:55.488+0000] {processor.py:186} INFO - Started process (PID=71) to work on /opt/airflow/dags/Stock_pred.py
+[2025-04-04T10:47:55.495+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-04-04T10:47:55.506+0000] {logging_mixin.py:190} INFO - [2025-04-04T10:47:55.505+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-04-04T10:48:08.754+0000] {logging_mixin.py:190} INFO - [2025-04-04T10:48:08.754+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-04-04T10:48:08.767+0000] {processor.py:925} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py

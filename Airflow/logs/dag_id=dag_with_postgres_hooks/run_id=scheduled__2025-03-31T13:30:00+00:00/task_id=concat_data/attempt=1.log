@@ -1,0 +1,36 @@
+[2025-04-01T20:59:20.607+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-04-01T20:59:20.623+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.concat_data scheduled__2025-03-31T13:30:00+00:00 [queued]>
+[2025-04-01T20:59:20.625+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.concat_data scheduled__2025-03-31T13:30:00+00:00 [queued]>
+[2025-04-01T20:59:20.626+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-04-01T20:59:20.630+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): concat_data> on 2025-03-31 13:30:00+00:00
+[2025-04-01T20:59:20.635+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=110) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-01T20:59:20.636+0000] {standard_task_runner.py:64} INFO - Started process 117 to run task
+[2025-04-01T20:59:20.636+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'concat_data', 'scheduled__2025-03-31T13:30:00+00:00', '--job-id', '1824', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmp2dk850gl']
+[2025-04-01T20:59:20.637+0000] {standard_task_runner.py:91} INFO - Job 1824: Subtask concat_data
+[2025-04-01T20:59:20.654+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.concat_data scheduled__2025-03-31T13:30:00+00:00 [running]> on host b7aba691e1ff
+[2025-04-01T20:59:20.685+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='concat_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-31T13:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-31T13:30:00+00:00'
+[2025-04-01T20:59:20.686+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-04-01T20:59:20.688+0000] {base.py:84} INFO - Using connection ID 'postgres_server_2' for task execution.
+[2025-04-01T20:59:20.714+0000] {logging_mixin.py:188} INFO -                OPEN     HIGH      LOW    CLOSE      VOLUME
+DATE                                                      
+2022-12-30  15436.0  15577.0  15296.0  15366.0   1339500.0
+2023-01-03  15436.0  15927.0  15401.0  15927.0   1547700.0
+2023-01-04  16033.0  16033.0  15822.0  15892.0   7244400.0
+2023-01-05  15962.0  16138.0  15892.0  16033.0   2104500.0
+2023-01-06  15998.0  16383.0  15857.0  16243.0   8403100.0
+...             ...      ...      ...      ...         ...
+2025-03-20  26400.0  26450.0  26150.0  26250.0   5048701.0
+2025-03-21  26250.0  26300.0  26100.0  26100.0  11854091.0
+2025-03-26  26300.0  26450.0  26100.0  26150.0  10733902.0
+2025-03-27  26000.0  26200.0  25950.0  26000.0   6649101.0
+2025-03-28  26000.0  26050.0  25850.0  25950.0  10417503.0
+
+[531 rows x 5 columns]
+[2025-04-01T20:59:20.797+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-04-01T20:59:20.797+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-04-01T20:59:20.800+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=concat_data, run_id=scheduled__2025-03-31T13:30:00+00:00, execution_date=20250331T133000, start_date=20250401T205920, end_date=20250401T205920
+[2025-04-01T20:59:20.815+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-04-01T20:59:20.825+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-01T20:59:20.826+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

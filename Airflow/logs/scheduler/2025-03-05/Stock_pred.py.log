@@ -1,0 +1,151 @@
+[2025-03-05T23:52:05.550+0000] {processor.py:161} INFO - Started process (PID=85) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:52:05.558+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:52:05.563+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:05.563+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:52:26.165+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:26.162+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-06nq824g because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:52:26.512+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:26.508+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:52:35.967+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:35.574+0000] {timeout.py:68} ERROR - Process timed out, PID: 85
+[2025-03-05T23:52:53.442+0000] {processor.py:161} INFO - Started process (PID=163) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:52:53.446+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:52:53.449+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:53.448+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:52:56.320+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:56.320+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-nzl44ja8 because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:52:56.417+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:56.417+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:52:57.242+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.242+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:52:57.251+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:52:57.279+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.279+0000] {taskinstance.py:2907} ERROR - {'DAG Id': 'dag_with_postgres_hooks', 'Task Id': 'plot_github', 'Run Id': 'scheduled__2025-02-03T13:30:00+00:00', 'Hostname': 'b7aba691e1ff', 'External Executor Id': '9bf615aa-ab36-4a7f-bf89-930cc232e472'}
+[2025-03-05T23:52:57.296+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.296+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=plot_github, run_id=scheduled__2025-02-03T13:30:00+00:00, execution_date=20250203T133000, start_date=20250206T203458, end_date=20250305T235257
+[2025-03-05T23:52:57.310+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dag_with_postgres_hooks.plot_github scheduled__2025-02-03T13:30:00+00:00 [failed]> in state failed
+[2025-03-05T23:52:57.313+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.312+0000] {taskinstance.py:2907} ERROR - {'DAG Id': 'dag_with_postgres_hooks', 'Task Id': 'plot_github', 'Run Id': 'scheduled__2025-02-03T13:30:00+00:00', 'Hostname': 'b7aba691e1ff', 'External Executor Id': '9bf615aa-ab36-4a7f-bf89-930cc232e472'}
+[2025-03-05T23:52:57.326+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.325+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=plot_github, run_id=scheduled__2025-02-03T13:30:00+00:00, execution_date=20250203T133000, start_date=20250206T203458, end_date=20250305T235257
+[2025-03-05T23:52:57.363+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dag_with_postgres_hooks.plot_github scheduled__2025-02-03T13:30:00+00:00 [failed]> in state failed
+[2025-03-05T23:52:57.365+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.364+0000] {taskinstance.py:2907} ERROR - {'DAG Id': 'dag_with_postgres_hooks', 'Task Id': 'plot_github', 'Run Id': 'scheduled__2025-02-03T13:30:00+00:00', 'Hostname': 'b7aba691e1ff', 'External Executor Id': '9bf615aa-ab36-4a7f-bf89-930cc232e472'}
+[2025-03-05T23:52:57.369+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.369+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=plot_github, run_id=scheduled__2025-02-03T13:30:00+00:00, execution_date=20250203T133000, start_date=20250206T203458, end_date=20250305T235257
+[2025-03-05T23:52:57.371+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dag_with_postgres_hooks.plot_github scheduled__2025-02-03T13:30:00+00:00 [failed]> in state failed
+[2025-03-05T23:52:57.467+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.467+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:52:57.478+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:52:57.478+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:52:57.491+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 4.058 seconds
+[2025-03-05T23:53:29.504+0000] {processor.py:161} INFO - Started process (PID=178) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:53:29.506+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:53:29.508+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:29.507+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:53:44.463+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:44.463+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-6s9jygsn because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:53:44.872+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:44.872+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:53:46.277+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:46.277+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:53:46.285+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:53:46.336+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:46.335+0000] {taskinstance.py:2907} ERROR - {'DAG Id': 'dag_with_postgres_hooks', 'Task Id': 'scrap_new_data', 'Run Id': 'scheduled__2025-02-20T13:30:00+00:00', 'Hostname': 'b7aba691e1ff', 'External Executor Id': '1b0d52fe-8ca5-4496-b1da-ced25445301e'}
+[2025-03-05T23:53:46.395+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:46.394+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=scrap_new_data, run_id=scheduled__2025-02-20T13:30:00+00:00, execution_date=20250220T133000, start_date=20250305T235256, end_date=20250305T235346
+[2025-03-05T23:53:46.427+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dag_with_postgres_hooks.scrap_new_data scheduled__2025-02-20T13:30:00+00:00 [failed]> in state failed
+[2025-03-05T23:53:46.471+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:46.470+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:53:46.489+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:46.489+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:53:46.534+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 16.816 seconds
+[2025-03-05T23:53:46.643+0000] {processor.py:161} INFO - Started process (PID=191) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:53:46.645+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:53:46.647+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:46.646+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:53:50.619+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:50.619+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-wqjhq_xt because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:53:50.847+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:50.847+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:53:51.453+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:51.453+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:53:51.460+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:53:51.516+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:51.515+0000] {taskinstance.py:2907} ERROR - {'DAG Id': 'dag_with_postgres_hooks', 'Task Id': 'scrap_new_data', 'Run Id': 'scheduled__2025-02-20T13:30:00+00:00', 'Hostname': 'b7aba691e1ff', 'External Executor Id': '1b0d52fe-8ca5-4496-b1da-ced25445301e'}
+[2025-03-05T23:53:51.546+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:51.546+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=scrap_new_data, run_id=scheduled__2025-02-20T13:30:00+00:00, execution_date=20250220T133000, start_date=20250305T235256, end_date=20250305T235351
+[2025-03-05T23:53:51.552+0000] {processor.py:791} INFO - Executed failure callback for <TaskInstance: dag_with_postgres_hooks.scrap_new_data scheduled__2025-02-20T13:30:00+00:00 [failed]> in state failed
+[2025-03-05T23:53:51.587+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:51.586+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:53:51.616+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:53:51.616+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:53:51.651+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 5.017 seconds
+[2025-03-05T23:54:22.512+0000] {processor.py:161} INFO - Started process (PID=287) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:54:22.519+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:54:22.522+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:54:22.521+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:54:27.875+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:54:27.872+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-gj6w11yp because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:54:28.035+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:54:28.034+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:54:28.919+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:54:28.918+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:54:28.927+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:54:28.966+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:54:28.965+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:54:29.506+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:54:29.506+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:54:29.520+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 7.016 seconds
+[2025-03-05T23:55:00.481+0000] {processor.py:161} INFO - Started process (PID=390) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:55:00.483+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:55:00.484+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:00.484+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:55:03.861+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:03.860+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-wrfohj25 because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:55:03.994+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:03.994+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:55:04.391+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:04.391+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:55:04.397+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:55:04.412+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:04.412+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:55:04.437+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:04.437+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:55:04.473+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.997 seconds
+[2025-03-05T23:55:34.625+0000] {processor.py:161} INFO - Started process (PID=465) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:55:34.626+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:55:34.629+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:34.629+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:55:37.440+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:37.439+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-tvgnjjti because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:55:37.561+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:37.561+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:55:38.106+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:38.105+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:55:38.109+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:55:38.145+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:38.144+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:55:38.178+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:55:38.178+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:55:38.217+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.601 seconds
+[2025-03-05T23:56:08.779+0000] {processor.py:161} INFO - Started process (PID=537) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:56:08.779+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:56:08.781+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:08.780+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:56:11.533+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:11.532+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-81bx73xb because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:56:11.640+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:11.640+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:56:12.302+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:12.302+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:56:12.309+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:56:12.323+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:12.322+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:56:12.365+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:12.364+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:56:12.395+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.621 seconds
+[2025-03-05T23:56:42.503+0000] {processor.py:161} INFO - Started process (PID=609) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:56:42.504+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:56:42.505+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:42.504+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:56:45.200+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:45.200+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-5d7nmwbs because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:56:45.299+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:45.299+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:56:45.923+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:45.922+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:56:45.925+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:56:45.960+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:45.960+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:56:45.991+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:56:45.991+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:56:46.024+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.524 seconds
+[2025-03-05T23:57:16.225+0000] {processor.py:161} INFO - Started process (PID=681) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:57:16.226+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:57:16.227+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:16.226+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:57:18.793+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:18.792+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-5i5bmoq0 because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:57:18.906+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:18.905+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:57:19.607+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:19.607+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:57:19.612+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:57:19.633+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:19.632+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:57:19.669+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:19.668+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:57:19.696+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.477 seconds
+[2025-03-05T23:57:50.186+0000] {processor.py:161} INFO - Started process (PID=753) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:57:50.187+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:57:50.188+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:50.188+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:57:53.087+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:53.087+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-39y30dz7 because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:57:53.212+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:53.212+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:57:53.861+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:53.861+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:57:53.863+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:57:53.917+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:53.916+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:57:53.943+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:57:53.943+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:57:53.993+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.813 seconds
+[2025-03-05T23:58:24.533+0000] {processor.py:161} INFO - Started process (PID=835) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:58:24.534+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:58:24.535+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:24.535+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:58:27.400+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:27.399+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-ab373e9_ because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:58:27.550+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:27.550+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:58:28.241+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:28.241+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:58:28.245+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:58:28.260+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:28.259+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:58:28.290+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:28.290+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:58:28.322+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.794 seconds
+[2025-03-05T23:58:59.124+0000] {processor.py:161} INFO - Started process (PID=919) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:58:59.126+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:58:59.127+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:58:59.127+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:59:01.998+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:01.997+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-udtugx3f because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:59:02.110+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:02.110+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:59:02.726+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:02.726+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:59:02.737+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:59:02.774+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:02.774+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:59:02.794+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:02.793+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:59:02.834+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.719 seconds
+[2025-03-05T23:59:33.589+0000] {processor.py:161} INFO - Started process (PID=1007) to work on /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:59:33.590+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-03-05T23:59:33.591+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:33.591+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:59:36.283+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:36.283+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-tcil5wez because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+[2025-03-05T23:59:36.439+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:36.439+0000] {font_manager.py:1584} INFO - generated new fontManager
+[2025-03-05T23:59:37.211+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:37.210+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-03-05T23:59:37.214+0000] {processor.py:840} INFO - DAG(s) 'dag_with_postgres_hooks' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-03-05T23:59:37.254+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:37.250+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-03-05T23:59:37.293+0000] {logging_mixin.py:188} INFO - [2025-03-05T23:59:37.292+0000] {dag.py:3947} INFO - Setting next_dagrun for dag_with_postgres_hooks to 2025-03-05 13:30:00+00:00, run_after=2025-03-06 13:30:00+00:00
+[2025-03-05T23:59:37.356+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.773 seconds

@@ -1,0 +1,52 @@
+[2024-08-05T09:22:07.863+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-05T09:22:07.873+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_Categorical manual__2024-08-05T09:21:52.195232+00:00 [queued]>
+[2024-08-05T09:22:07.876+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.pred_Categorical manual__2024-08-05T09:21:52.195232+00:00 [queued]>
+[2024-08-05T09:22:07.876+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-08-05T09:22:07.880+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): pred_Categorical> on 2024-08-05 09:21:52.195232+00:00
+[2024-08-05T09:22:07.885+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=3665) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-05T09:22:07.885+0000] {standard_task_runner.py:64} INFO - Started process 3676 to run task
+[2024-08-05T09:22:07.886+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'pred_Categorical', 'manual__2024-08-05T09:21:52.195232+00:00', '--job-id', '716', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmpxckmwli2']
+[2024-08-05T09:22:07.886+0000] {standard_task_runner.py:91} INFO - Job 716: Subtask pred_Categorical
+[2024-08-05T09:22:07.902+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.pred_Categorical manual__2024-08-05T09:21:52.195232+00:00 [running]> on host b6b4a3e7bf9d
+[2024-08-05T09:22:07.934+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='pred_Categorical' AIRFLOW_CTX_EXECUTION_DATE='2024-08-05T09:21:52.195232+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-05T09:21:52.195232+00:00'
+[2024-08-05T09:22:07.935+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-05T09:22:08.006+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-05T09:22:08.006+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/Stock_pred.py", line 241, in pred_Categorical
+    model = pickle.loads(s3.Bucket("mlflow-artifacts").Object("/1/2ddf3e31f2304446a02d124067d40814/artifacts/testmodel/model.pkl").get()['Body'].read())
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/resources/factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/boto3/resources/action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 565, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/botocore/client.py", line 1021, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.NoSuchKey: An error occurred (NoSuchKey) when calling the GetObject operation: The specified key does not exist.
+[2024-08-05T09:22:08.012+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dag_with_postgres_hooks, task_id=pred_Categorical, run_id=manual__2024-08-05T09:21:52.195232+00:00, execution_date=20240805T092152, start_date=20240805T092207, end_date=20240805T092208
+[2024-08-05T09:22:08.016+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 716 for task pred_Categorical (An error occurred (NoSuchKey) when calling the GetObject operation: The specified key does not exist.; 3676)
+[2024-08-05T09:22:08.025+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-05T09:22:08.035+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-05T09:22:08.036+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

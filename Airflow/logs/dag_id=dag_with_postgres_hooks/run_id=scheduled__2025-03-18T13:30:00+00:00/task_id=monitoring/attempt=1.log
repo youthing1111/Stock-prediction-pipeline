@@ -1,0 +1,45 @@
+[2025-03-19T21:15:55.862+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-03-19T21:15:55.871+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.monitoring scheduled__2025-03-18T13:30:00+00:00 [queued]>
+[2025-03-19T21:15:55.873+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_postgres_hooks.monitoring scheduled__2025-03-18T13:30:00+00:00 [queued]>
+[2025-03-19T21:15:55.873+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-03-19T21:15:55.878+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): monitoring> on 2025-03-18 13:30:00+00:00
+[2025-03-19T21:15:55.882+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=206) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-19T21:15:55.883+0000] {standard_task_runner.py:64} INFO - Started process 213 to run task
+[2025-03-19T21:15:55.884+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_with_postgres_hooks', 'monitoring', 'scheduled__2025-03-18T13:30:00+00:00', '--job-id', '1715', '--raw', '--subdir', 'DAGS_FOLDER/Stock_pred.py', '--cfg-path', '/tmp/tmplzcm6m9p']
+[2025-03-19T21:15:55.884+0000] {standard_task_runner.py:91} INFO - Job 1715: Subtask monitoring
+[2025-03-19T21:15:55.900+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_with_postgres_hooks.monitoring scheduled__2025-03-18T13:30:00+00:00 [running]> on host b7aba691e1ff
+[2025-03-19T21:15:55.929+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_with_postgres_hooks' AIRFLOW_CTX_TASK_ID='monitoring' AIRFLOW_CTX_EXECUTION_DATE='2025-03-18T13:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-18T13:30:00+00:00'
+[2025-03-19T21:15:55.930+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-03-19T21:15:55.932+0000] {base.py:84} INFO - Using connection ID 'postgres_server_2' for task execution.
+[2025-03-19T21:15:55.962+0000] {warnings.py:112} WARNING - /opt/***/dags/Stock_pred.py:431: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_old_clf['Target'].iloc[-1] = input_clf['Target']
+
+[2025-03-19T21:15:55.993+0000] {logging_mixin.py:188} INFO -    predicted_index
+0       -48.835705
+[2025-03-19T21:15:55.995+0000] {logging_mixin.py:188} INFO -          Date  CLOSE_diff_t+1  New_Prediction_ts
+0  03-19-2025             NaN         -48.835705
+[2025-03-19T21:15:55.997+0000] {logging_mixin.py:188} INFO -                     Date  CLOSE_diff_t+1  New_Prediction_ts
+0    2022-02-24 00:00:00      -56.133410         -39.024616
+1    2022-02-25 00:00:00     -252.600345        -132.841003
+2    2022-02-28 00:00:00      -28.066705         -37.190056
+3    2022-03-01 00:00:00     -533.267395        -206.798630
+4    2022-03-02 00:00:00      308.733755         110.723549
+..                   ...             ...                ...
+627           03-14-2025             NaN         -73.404167
+628           03-14-2025             NaN         -86.356987
+629           03-16-2025             NaN         -68.730370
+630           03-18-2025             NaN         -71.272507
+0             03-19-2025             NaN         -48.835705
+
+[632 rows x 3 columns]
+[2025-03-19T21:15:56.009+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-03-19T21:15:56.009+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-03-19T21:15:56.012+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_with_postgres_hooks, task_id=monitoring, run_id=scheduled__2025-03-18T13:30:00+00:00, execution_date=20250318T133000, start_date=20250319T211555, end_date=20250319T211556
+[2025-03-19T21:15:56.023+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2025-03-19T21:15:56.029+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-19T21:15:56.029+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

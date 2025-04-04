@@ -1,0 +1,21 @@
+[2024-12-17T10:32:10.796+0000] {processor.py:161} INFO - Started process (PID=93) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:32:10.797+0000] {processor.py:830} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py for tasks to queue
+[2024-12-17T10:32:10.798+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:32:10.797+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:32:10.801+0000] {processor.py:840} INFO - DAG(s) 'example_setup_teardown' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:32:10.815+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:32:10.815+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-12-17T10:32:10.823+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:32:10.823+0000] {dag.py:3947} INFO - Setting next_dagrun for example_setup_teardown to 2024-12-16 00:00:00+00:00, run_after=2024-12-17 00:00:00+00:00
+[2024-12-17T10:32:10.830+0000] {processor.py:183} INFO - Processing /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py took 0.036 seconds
+[2024-12-17T10:52:02.098+0000] {processor.py:161} INFO - Started process (PID=69) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:52:02.099+0000] {processor.py:830} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py for tasks to queue
+[2024-12-17T10:52:02.100+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:52:02.099+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:52:02.104+0000] {processor.py:840} INFO - DAG(s) 'example_setup_teardown' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:52:02.119+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:52:02.119+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-12-17T10:52:02.131+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:52:02.130+0000] {dag.py:3947} INFO - Setting next_dagrun for example_setup_teardown to 2024-12-16 00:00:00+00:00, run_after=2024-12-17 00:00:00+00:00
+[2024-12-17T10:52:02.139+0000] {processor.py:183} INFO - Processing /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py took 0.044 seconds
+[2024-12-17T10:52:35.967+0000] {processor.py:161} INFO - Started process (PID=141) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:52:35.968+0000] {processor.py:830} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py for tasks to queue
+[2024-12-17T10:52:35.969+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:52:35.969+0000] {dagbag.py:545} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:52:35.972+0000] {processor.py:840} INFO - DAG(s) 'example_setup_teardown' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py
+[2024-12-17T10:52:35.983+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:52:35.983+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-12-17T10:52:35.997+0000] {logging_mixin.py:188} INFO - [2024-12-17T10:52:35.997+0000] {dag.py:3947} INFO - Setting next_dagrun for example_setup_teardown to 2024-12-16 00:00:00+00:00, run_after=2024-12-17 00:00:00+00:00
+[2024-12-17T10:52:36.006+0000] {processor.py:183} INFO - Processing /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_setup_teardown.py took 0.041 seconds
