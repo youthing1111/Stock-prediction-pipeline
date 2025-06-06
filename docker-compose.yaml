@@ -1,6 +1,6 @@
 x-airflow-common:
   &airflow-common
-  build: ./Airflow
+  build: ./ACB/Airflow
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -14,10 +14,10 @@ x-airflow-common:
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- airflow-provider-mlflow mlflow apache-airflow-providers-amazon apache-airflow-providers-postgres minio xgboost}
   volumes:
-    - /Users/trieuhoanghiep/Documents/Me/Project/Stock-prediction-pipeline/Airflow/dags:/opt/airflow/dags
-    - /Users/trieuhoanghiep/Documents/Me/Project/Stock-prediction-pipeline/Airflow/logs:/opt/airflow/logs
-    - /Users/trieuhoanghiep/Documents/Me/Project/Stock-prediction-pipeline/Airflow/config:/opt/airflow/config
-    - /Users/trieuhoanghiep/Documents/Me/Project/Stock-prediction-pipeline/Airflow/plugins:/opt/airflow/plugins
+    - /Users/trieuhoanghiep/Documents/Me/Project/Stock prediction/ACB/Airflow/dags:/opt/airflow/dags
+    - /Users/trieuhoanghiep/Documents/Me/Project/Stock prediction/ACB/Airflow/logs:/opt/airflow/logs
+    - /Users/trieuhoanghiep/Documents/Me/Project/Stock prediction/ACB/Airflow/config:/opt/airflow/config
+    - /Users/trieuhoanghiep/Documents/Me/Project/Stock prediction/ACB/Airflow/plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -266,7 +266,7 @@ services:
       
   tracking_server:
     restart: always
-    build: ./MLFlow
+    build: ./ACB/MLFlow
     image: ghcr.io/mlflow/mlflow:latest
     container_name: ACB_mlflow_server
     depends_on:
