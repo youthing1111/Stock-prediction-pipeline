@@ -1,9 +1,0 @@
-[2024-12-18T10:42:38.416+0000] {processor.py:161} INFO - Started process (PID=53) to work on /opt/airflow/dags/test.py
-[2024-12-18T10:42:38.418+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/test.py for tasks to queue
-[2024-12-18T10:42:38.423+0000] {logging_mixin.py:188} INFO - [2024-12-18T10:42:38.423+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/test.py
-[2024-12-18T10:42:42.177+0000] {logging_mixin.py:188} INFO - [2024-12-18T10:42:42.177+0000] {__init__.py:547} WARNING - Matplotlib created a temporary cache directory at /tmp/matplotlib-2dwhet2f because the default path (/home/airflow/.cache/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
-[2024-12-18T10:42:42.297+0000] {logging_mixin.py:188} INFO - [2024-12-18T10:42:42.297+0000] {font_manager.py:1584} INFO - generated new fontManager
-[2024-12-18T10:42:42.794+0000] {processor.py:840} INFO - DAG(s) 'test' retrieved from /opt/airflow/dags/test.py
-[2024-12-18T10:42:42.880+0000] {logging_mixin.py:188} INFO - [2024-12-18T10:42:42.879+0000] {dag.py:3089} INFO - Sync 1 DAGs
-[2024-12-18T10:42:42.887+0000] {logging_mixin.py:188} INFO - [2024-12-18T10:42:42.887+0000] {dag.py:3947} INFO - Setting next_dagrun for test to None, run_after=None
-[2024-12-18T10:42:42.897+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/test.py took 4.486 seconds
