@@ -1783,3 +1783,27 @@
 [2025-04-11T12:57:04.178+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:57:04.178+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-04-11T12:57:04.223+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:57:04.223+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction to 2025-04-10 13:30:00+00:00, run_after=2025-04-11 13:30:00+00:00
 [2025-04-11T12:57:04.238+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Stock_pred.py took 4.361 seconds
+[2025-04-11T12:57:34.557+0000] {processor.py:186} INFO - Started process (PID=2165) to work on /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:57:34.559+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-04-11T12:57:34.561+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:57:34.560+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:57:38.286+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:57:38.286+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-04-11T12:57:38.296+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:57:38.341+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:57:38.341+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-11T12:57:38.382+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:57:38.382+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction to 2025-04-10 13:30:00+00:00, run_after=2025-04-11 13:30:00+00:00
+[2025-04-11T12:57:38.402+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.850 seconds
+[2025-04-11T12:58:08.678+0000] {processor.py:186} INFO - Started process (PID=2181) to work on /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:58:08.680+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-04-11T12:58:08.683+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:08.683+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:58:12.406+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:12.406+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-04-11T12:58:12.412+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:58:12.457+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:12.457+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-11T12:58:12.468+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:12.468+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction to 2025-04-10 13:30:00+00:00, run_after=2025-04-11 13:30:00+00:00
+[2025-04-11T12:58:12.476+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Stock_pred.py took 3.803 seconds
+[2025-04-11T12:58:42.923+0000] {processor.py:186} INFO - Started process (PID=2197) to work on /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:58:42.928+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Stock_pred.py for tasks to queue
+[2025-04-11T12:58:42.972+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:42.969+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:58:48.526+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:48.526+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-04-11T12:58:48.531+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction' retrieved from /opt/airflow/dags/Stock_pred.py
+[2025-04-11T12:58:48.549+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:48.549+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-11T12:58:48.567+0000] {logging_mixin.py:190} INFO - [2025-04-11T12:58:48.567+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction to 2025-04-10 13:30:00+00:00, run_after=2025-04-11 13:30:00+00:00
+[2025-04-11T12:58:48.576+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Stock_pred.py took 5.659 seconds

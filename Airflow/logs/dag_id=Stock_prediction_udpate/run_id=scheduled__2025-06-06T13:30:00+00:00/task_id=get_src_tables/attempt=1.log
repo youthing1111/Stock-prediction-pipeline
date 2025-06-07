@@ -1,0 +1,24 @@
+[2025-06-07T13:30:02.783+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-06-07T13:30:02.789+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Stock_prediction_udpate.get_src_tables scheduled__2025-06-06T13:30:00+00:00 [queued]>
+[2025-06-07T13:30:02.792+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Stock_prediction_udpate.get_src_tables scheduled__2025-06-06T13:30:00+00:00 [queued]>
+[2025-06-07T13:30:02.792+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-06-07T13:30:02.797+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): get_src_tables> on 2025-06-06 13:30:00+00:00
+[2025-06-07T13:30:02.802+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=208) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-06-07T13:30:02.803+0000] {standard_task_runner.py:72} INFO - Started process 212 to run task
+[2025-06-07T13:30:02.804+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'Stock_prediction_udpate', 'get_src_tables', 'scheduled__2025-06-06T13:30:00+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/Update.py', '--cfg-path', '/tmp/tmpbm0vcghe']
+[2025-06-07T13:30:02.806+0000] {standard_task_runner.py:105} INFO - Job 41: Subtask get_src_tables
+[2025-06-07T13:30:02.825+0000] {task_command.py:467} INFO - Running <TaskInstance: Stock_prediction_udpate.get_src_tables scheduled__2025-06-06T13:30:00+00:00 [running]> on host c485992206db
+[2025-06-07T13:30:02.857+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='***@example.com' AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Stock_prediction_udpate' AIRFLOW_CTX_TASK_ID='get_src_tables' AIRFLOW_CTX_EXECUTION_DATE='2025-06-06T13:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-06-06T13:30:00+00:00'
+[2025-06-07T13:30:02.858+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-06-07T13:30:02.867+0000] {base.py:84} INFO - Retrieving connection 'postgres'
+[2025-06-07T13:30:02.874+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/providers/common/sql/hooks/sql.py:287: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-06-07T13:30:02.907+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-06-07T13:30:02.911+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-06-07T13:30:02.912+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=Stock_prediction_udpate, task_id=get_src_tables, run_id=scheduled__2025-06-06T13:30:00+00:00, execution_date=20250606T133000, start_date=20250607T133002, end_date=20250607T133002
+[2025-06-07T13:30:02.942+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-06-07T13:30:02.949+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-06-07T13:30:02.950+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

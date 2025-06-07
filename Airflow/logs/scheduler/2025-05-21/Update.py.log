@@ -1,0 +1,32 @@
+[2025-05-21T09:16:26.159+0000] {processor.py:186} INFO - Started process (PID=59) to work on /opt/airflow/dags/Update.py
+[2025-05-21T09:16:26.161+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Update.py for tasks to queue
+[2025-05-21T09:16:26.163+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:16:26.163+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Update.py
+[2025-05-21T09:16:31.128+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:16:31.128+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-21T09:16:31.135+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction_udpate' retrieved from /opt/airflow/dags/Update.py
+[2025-05-21T09:16:31.206+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:16:31.205+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-21T09:16:31.216+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:16:31.216+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction_udpate to 2025-05-20 13:30:00+00:00, run_after=2025-05-21 13:30:00+00:00
+[2025-05-21T09:16:31.224+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Update.py took 5.073 seconds
+[2025-05-21T09:17:01.445+0000] {processor.py:186} INFO - Started process (PID=79) to work on /opt/airflow/dags/Update.py
+[2025-05-21T09:17:01.447+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Update.py for tasks to queue
+[2025-05-21T09:17:01.449+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:01.448+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Update.py
+[2025-05-21T09:17:04.534+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:04.534+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-21T09:17:04.538+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction_udpate' retrieved from /opt/airflow/dags/Update.py
+[2025-05-21T09:17:04.554+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:04.554+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-21T09:17:04.565+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:04.565+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction_udpate to 2025-05-20 13:30:00+00:00, run_after=2025-05-21 13:30:00+00:00
+[2025-05-21T09:17:04.573+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Update.py took 3.132 seconds
+[2025-05-21T09:17:34.763+0000] {processor.py:186} INFO - Started process (PID=95) to work on /opt/airflow/dags/Update.py
+[2025-05-21T09:17:34.765+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Update.py for tasks to queue
+[2025-05-21T09:17:34.767+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:34.767+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Update.py
+[2025-05-21T09:17:37.390+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:37.389+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-21T09:17:37.392+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction_udpate' retrieved from /opt/airflow/dags/Update.py
+[2025-05-21T09:17:37.407+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:37.407+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-21T09:17:37.418+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:17:37.418+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction_udpate to 2025-05-20 13:30:00+00:00, run_after=2025-05-21 13:30:00+00:00
+[2025-05-21T09:17:37.425+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Update.py took 2.665 seconds
+[2025-05-21T09:18:07.687+0000] {processor.py:186} INFO - Started process (PID=111) to work on /opt/airflow/dags/Update.py
+[2025-05-21T09:18:07.690+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/Update.py for tasks to queue
+[2025-05-21T09:18:07.693+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:18:07.693+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/Update.py
+[2025-05-21T09:18:09.954+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:18:09.954+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-05-21T09:18:09.959+0000] {processor.py:925} INFO - DAG(s) 'Stock_prediction_udpate' retrieved from /opt/airflow/dags/Update.py
+[2025-05-21T09:18:09.973+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:18:09.970+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-05-21T09:18:09.983+0000] {logging_mixin.py:190} INFO - [2025-05-21T09:18:09.983+0000] {dag.py:4180} INFO - Setting next_dagrun for Stock_prediction_udpate to 2025-05-20 13:30:00+00:00, run_after=2025-05-21 13:30:00+00:00
+[2025-05-21T09:18:09.995+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/Update.py took 2.314 seconds
