@@ -1,11 +1,10 @@
 from github import Github
 from datetime import datetime, timedelta
-from airflow.utils.dates import days_ago
+#from airflow.utils.dates import days_ago
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.models.connection import Connection
-from airflow.hooks.base_hook import BaseHook
 import pandas as pd
 from sqlalchemy import create_engine
 from bs4 import BeautifulSoup
@@ -16,16 +15,15 @@ import mlflow
 import boto3
 from airflow.hooks.base import BaseHook
 import pickle
-import tensorflow as tf
 from matplotlib import pyplot as plt
 import matplotlib.dates as mdates
 import io 
 from xgboost import XGBClassifier, XGBRegressor
 
 default_args = {
-    'owner': 'airflow',
+    'owner': 'admin',
     'depends_on_past': False,
-    'start_date': days_ago(2),
+    'start_date': '2025-06-07',
     'email': ['airflow@example.com'],
     'email_on_failure': False,
     'email_on_retry': False,
@@ -114,9 +112,9 @@ def scrap_stock(**context):
     context['ti'].xcom_push(key="new data", value=df_latest)
 
 with DAG(
-    dag_id="Stock_prediction_udpate",
+    dag_id="Stock_prediction_update",
     default_args=default_args,
-    schedule_interval='30 13 * * *'
+    schedule='30 13 * * *'
 ) as dag:
     task_1 =PythonOperator(
         task_id = "get_src_tables",

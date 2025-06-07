@@ -1,4 +1,4 @@
-FROM apache/airflow:latest
+FROM apache/airflow:3.0.0
 #docker-compose up -d --build
 # Install deps as root.
 USER root
@@ -7,6 +7,6 @@ RUN  apt-get -y update && \
 
 USER airflow
 # Install python requirements
-RUN pip install PyGithub && \
-    pip install tensorflow
+RUN pip install PyGithub 
+    #pip install tensorflow
 CMD ["bash"]
