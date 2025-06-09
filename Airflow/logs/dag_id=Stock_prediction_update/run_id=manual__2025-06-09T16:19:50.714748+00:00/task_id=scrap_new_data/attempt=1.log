@@ -1,0 +1,14 @@
+{"timestamp":"2025-06-09T16:19:51.562387","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-09T16:19:51.562840","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/Update.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-09T16:19:53.635251","level":"warning","event":"empty cryptography key - values will not be stored encrypted.","logger":"airflow.models.crypto"}
+{"timestamp":"2025-06-09T16:19:53.670365Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:19:53.670507Z","level":"info","event":" Previous state of the Task instance: queued","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:19:53.670570Z","level":"info","event":"Current task name:scrap_new_data","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:19:53.670622Z","level":"info","event":"Dag name:Stock_prediction_update","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:20:01.205104","level":"warning","event":"/opt/airflow/dags/Update.py:148: GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (\"lxml\"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.\n\nThe code that caused this warning is on line 148 of the file /opt/airflow/dags/Update.py. To get rid of this warning, pass the additional argument 'features=\"lxml\"' to the BeautifulSoup constructor.\n\n  soup = BeautifulSoup(html)\n","logger":"py.warnings"}
+{"timestamp":"2025-06-09T16:20:01.315475Z","level":"info","event":"      OPEN     HIGH      LOW    CLOSE     VOLUME","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:20:01.315658Z","level":"info","event":"0  21000.0  21050.0  20900.0  20950.0  5725200.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:20:01.315783Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:20:01.315921Z","level":"info","event":" Previous state of the Task instance: running","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:20:01.316023Z","level":"info","event":"Task operator:<Task(PythonOperator): scrap_new_data>","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:20:01.283037","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

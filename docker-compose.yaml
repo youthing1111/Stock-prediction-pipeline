@@ -285,11 +285,11 @@ services:
       - 5434:5434
     networks:
       - backend
-    #healthcheck:
-    #  test: ["CMD", "pg_isready", "-U", "airflow"]
-    #  interval: 10s
-    #  retries: 5
-    #  start_period: 5s
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
     restart: always
     command: -p 5434
 

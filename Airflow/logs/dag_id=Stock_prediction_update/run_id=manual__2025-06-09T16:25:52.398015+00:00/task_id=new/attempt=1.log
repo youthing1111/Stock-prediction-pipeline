@@ -1,0 +1,59 @@
+{"timestamp":"2025-06-09T16:25:54.634824","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-09T16:25:54.636091","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/Update.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-09T16:25:57.997839","level":"warning","event":"empty cryptography key - values will not be stored encrypted.","logger":"airflow.models.crypto"}
+{"timestamp":"2025-06-09T16:25:58.048515Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.048791Z","level":"info","event":" Previous state of the Task instance: queued","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.049150Z","level":"info","event":"Current task name:new","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.049378Z","level":"info","event":"Dag name:Stock_prediction_update","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.008177","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-06-09T16:25:58.049686","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-06-09T16:25:58.074544","level":"warning","event":"/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py:462: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.\n  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)\n","logger":"py.warnings"}
+{"timestamp":"2025-06-09T16:25:58.100879Z","level":"info","event":"            date  close   open   high    low  volume  change","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.101275Z","level":"info","event":"0     2025-04-03  24150  25150  25350  24150   39.69   -6.94","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.101411Z","level":"info","event":"1     2025-04-02  25950  26100  26200  25900    7.48   -0.38","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.101522Z","level":"info","event":"2     2025-04-01  26050  26000  26050  25900    3.05    0.19","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.101751Z","level":"info","event":"3     2025-03-31  26000  25850  26000  25800    9.13    0.19","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.102085Z","level":"info","event":"4     2025-03-28  25950  26000  26050  25850    9.73   -0.19","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.102714Z","level":"info","event":"...          ...    ...    ...    ...    ...     ...     ...","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.102834Z","level":"info","event":"4563  2006-12-08   7745   7965   7965   7471  550.07    4.83","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.103019Z","level":"info","event":"4564  2006-12-07   7388   6867   7388   6867  274.47    6.75","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.103257Z","level":"info","event":"4565  2006-12-06   6921   6592   6921   6592  927.74    2.44","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.103430Z","level":"info","event":"4566  2006-12-05   6757   6921   6921   6592    1.26   -2.38","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.103705Z","level":"info","event":"4567  2006-12-04   6921   7196   7196   6867    1.02   -3.08","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.103860Z","level":"info","event":"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:58.104062Z","level":"info","event":"[4568 rows x 7 columns]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.219606","level":"warning","event":"/opt/airflow/dags/Update.py:57: GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (\"lxml\"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.\n\nThe code that caused this warning is on line 57 of the file /opt/airflow/dags/Update.py. To get rid of this warning, pass the additional argument 'features=\"lxml\"' to the BeautifulSoup constructor.\n\n  soup = BeautifulSoup(html)\n","logger":"py.warnings"}
+{"timestamp":"2025-06-09T16:25:59.263882","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-06-09T16:25:59.270843","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-06-09T16:25:59.275386Z","level":"info","event":"            date  close   open   high    low  volume  change","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.275488Z","level":"info","event":"0     2025-04-03  24150  25150  25350  24150   39.69   -6.94","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.275597Z","level":"info","event":"1     2025-04-02  25950  26100  26200  25900    7.48   -0.38","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.275685Z","level":"info","event":"2     2025-04-01  26050  26000  26050  25900    3.05    0.19","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.275784Z","level":"info","event":"3     2025-03-31  26000  25850  26000  25800    9.13    0.19","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.275880Z","level":"info","event":"4     2025-03-28  25950  26000  26050  25850    9.73   -0.19","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.275972Z","level":"info","event":"...          ...    ...    ...    ...    ...     ...     ...","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276042Z","level":"info","event":"4563  2006-12-08   7745   7965   7965   7471  550.07    4.83","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276133Z","level":"info","event":"4564  2006-12-07   7388   6867   7388   6867  274.47    6.75","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276206Z","level":"info","event":"4565  2006-12-06   6921   6592   6921   6592  927.74    2.44","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276291Z","level":"info","event":"4566  2006-12-05   6757   6921   6921   6592    1.26   -2.38","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276365Z","level":"info","event":"4567  2006-12-04   6921   7196   7196   6867    1.02   -3.08","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276436Z","level":"info","event":"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.276513Z","level":"info","event":"[4568 rows x 7 columns]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286418Z","level":"info","event":"            date    close     open     high      low  volume     colume","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286533Z","level":"info","event":"0     2025-04-03  24150.0  25150.0  25350.0  24150.0   39.69        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286585Z","level":"info","event":"1     2025-04-02  25950.0  26100.0  26200.0  25900.0    7.48        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286646Z","level":"info","event":"2     2025-04-01  26050.0  26000.0  26050.0  25900.0    3.05        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286704Z","level":"info","event":"3     2025-03-31  26000.0  25850.0  26000.0  25800.0    9.13        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286760Z","level":"info","event":"4     2025-03-28  25950.0  26000.0  26050.0  25850.0    9.73        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286809Z","level":"info","event":"...          ...      ...      ...      ...      ...     ...        ...","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286906Z","level":"info","event":"4564  2006-12-07   7388.0   6867.0   7388.0   6867.0  274.47        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286952Z","level":"info","event":"4565  2006-12-06   6921.0   6592.0   6921.0   6592.0  927.74        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287011Z","level":"info","event":"4566  2006-12-05   6757.0   6921.0   6921.0   6592.0    1.26        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287082Z","level":"info","event":"4567  2006-12-04   6921.0   7196.0   7196.0   6867.0    1.02        NaN","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287172Z","level":"info","event":"4568  2025-06-09  20950.0  21000.0  21050.0  20900.0     NaN  5725200.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287221Z","level":"info","event":"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287264Z","level":"info","event":"[4569 rows x 7 columns]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287358Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287413Z","level":"info","event":" Previous state of the Task instance: running","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.287479Z","level":"info","event":"Task operator:<Task(PythonOperator): new>","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:25:59.286904","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}

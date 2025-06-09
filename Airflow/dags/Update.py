@@ -35,20 +35,17 @@ c = Connection(
     conn_id='postgres',
     conn_type='Postgres',
     login='airflow',
-    password='airflow',
-    host='host.docker.internal'
+    password='airflow'
 )
 
-def get_src_tables(**context):
+def update_data(**context):
     hook = PostgresHook(postgres_conn_id="postgres")
 
     sql_ts = """ SELECT * FROM public."acb_stock" """
-    df_ts = hook.get_pandas_df(sql_ts)
-    context['ti'].xcom_push(key="old data ts", value=df_ts)
+    df_old = hook.get_pandas_df(sql_ts)
 
-def scrap_stock(**context):
     date  = datetime.today().strftime('%Y-%m-%d')
-    context['ti'].xcom_push(key="current_date", value=date)
+
     close = []
     open = []
     high = []
@@ -109,7 +106,23 @@ def scrap_stock(**context):
     df_latest['LOW'] = df_latest['LOW'].astype(float).apply(lambda x: x*1000)
     df_latest['CLOSE'] = df_latest['CLOSE'].astype(float).apply(lambda x: x*1000)
     df_latest['VOLUME'] = df_latest['VOLUME'].astype(float)
-    context['ti'].xcom_push(key="new data", value=df_latest)
+
+    conn = BaseHook.get_connection('postgres')
+    engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
+
+    df_old = df_old.drop(columns=['change'])
+    df_old = df_old.sort_values(by='date')
+    df_old.set_index("date",inplace=True)
+
+    df_latest.rename(index={0:date},inplace=True)
+    df_latest = df_latest.rename(columns={'HIGH': 'high', 'LOW': 'low','CLOSE':'close','OPEN':'open','VOLUME':'volume'})
+    df_latest['volume'] = df_latest['volume']/1000000
+
+    df_full = pd.concat([df_old, df_latest])
+    df_full.reset_index(names="date",inplace=True)
+    df_full.drop_duplicates(inplace=True,keep='last')
+
+    df_full.to_sql(f'acb_stock', engine, if_exists='replace', index=False)
 
 with DAG(
     dag_id="Stock_prediction_update",
@@ -117,11 +130,7 @@ with DAG(
     #schedule='30 13 * * *'
 ) as dag:
     task_1 =PythonOperator(
-        task_id = "get_src_tables",
-        python_callable=get_src_tables
+        task_id = "update_data",
+        python_callable=update_data
     )
-    task_2 =PythonOperator(
-        task_id = "scrap_new_data",
-        python_callable=scrap_stock
-    )
-    task_2>> task_1
+    task_1

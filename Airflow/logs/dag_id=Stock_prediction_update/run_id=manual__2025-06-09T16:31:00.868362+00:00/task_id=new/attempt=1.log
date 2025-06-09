@@ -1,0 +1,17 @@
+{"timestamp":"2025-06-09T16:31:02.426723","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-09T16:31:02.427290","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/Update.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-09T16:31:04.936549","level":"warning","event":"empty cryptography key - values will not be stored encrypted.","logger":"airflow.models.crypto"}
+{"timestamp":"2025-06-09T16:31:05.318798Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:31:05.319001Z","level":"info","event":" Previous state of the Task instance: queued","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:31:05.319100Z","level":"info","event":"Current task name:new","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:31:05.319174Z","level":"info","event":"Dag name:Stock_prediction_update","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:31:04.942961","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-06-09T16:31:05.320030","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-06-09T16:31:05.344101","level":"warning","event":"/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py:462: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.\n  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)\n","logger":"py.warnings"}
+{"timestamp":"2025-06-09T16:31:06.518923","level":"warning","event":"/opt/airflow/dags/Update.py:55: GuessedAtParserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system (\"lxml\"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.\n\nThe code that caused this warning is on line 55 of the file /opt/airflow/dags/Update.py. To get rid of this warning, pass the additional argument 'features=\"lxml\"' to the BeautifulSoup constructor.\n\n  soup = BeautifulSoup(html)\n","logger":"py.warnings"}
+{"timestamp":"2025-06-09T16:31:06.545938","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-06-09T16:31:06.551966","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-06-09T16:31:06.685931","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-06-09T16:31:06.695670Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:31:06.695824Z","level":"info","event":" Previous state of the Task instance: running","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-09T16:31:06.695927Z","level":"info","event":"Task operator:<Task(PythonOperator): new>","chan":"stdout","logger":"task"}
