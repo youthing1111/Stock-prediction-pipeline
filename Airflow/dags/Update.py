@@ -114,7 +114,7 @@ def scrap_stock(**context):
 with DAG(
     dag_id="Stock_prediction_update",
     default_args=default_args,
-    schedule='30 13 * * *'
+    #schedule='30 13 * * *'
 ) as dag:
     task_1 =PythonOperator(
         task_id = "get_src_tables",
@@ -124,4 +124,4 @@ with DAG(
         task_id = "scrap_new_data",
         python_callable=scrap_stock
     )
-    task_1>> task_2
+    task_2>> task_1
