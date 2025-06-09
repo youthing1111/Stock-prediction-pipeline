@@ -110,7 +110,7 @@ def update_data(**context):
     conn = BaseHook.get_connection('postgres')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
 
-    df_old = df_old.drop(columns=['change'])
+    #df_old = df_old.drop(columns=['change'])
     df_old = df_old.sort_values(by='date')
     df_old.set_index("date",inplace=True)
 
