@@ -350,7 +350,6 @@ services:
       timeout: 10s
       retries: 3
 
-
 networks:
   frontend:
     driver: bridge
