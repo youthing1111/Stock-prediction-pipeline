@@ -147,4 +147,5 @@ with mlflow.start_run():
 
     # Log parameter, metrics, and model to MLflow
     mlflow.log_metric("MAPE", mape_test)
-    mlflow.sklearn.log_model(model,artifact_path='testmodel')
+    #mlflow.sklearn.log_model(model,artifact_path='testmodel')
+    mlflow.xgboost.log_model(model,artifact_path='testmodel')

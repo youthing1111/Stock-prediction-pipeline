@@ -1,0 +1,33 @@
+{"timestamp":"2025-06-10T15:16:56.068033","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-10T15:16:56.068291","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/Update.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-10T15:16:57.239941","level":"warning","event":"empty cryptography key - values will not be stored encrypted.","logger":"airflow.models.crypto"}
+{"timestamp":"2025-06-10T15:16:57.253610Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:16:57.253789Z","level":"info","event":" Previous state of the Task instance: queued","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:16:57.253864Z","level":"info","event":"Current task name:prediction","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:16:57.253914Z","level":"info","event":"Dag name:Stock_prediction_update","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:16:57.243715","level":"info","event":"Secrets backends loaded for worker","count":1,"backend_classes":["EnvironmentVariablesBackend"],"logger":"supervisor"}
+{"timestamp":"2025-06-10T15:16:57.253919","level":"warning","event":"Skipping masking for a secret as it's too short (<5 chars)","logger":"airflow.sdk.execution_time.secrets_masker"}
+{"timestamp":"2025-06-10T15:16:57.254128","level":"info","event":"Connection Retrieved 'postgres'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-06-10T15:16:57.259972","level":"warning","event":"/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py:462: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.\n  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)\n","logger":"py.warnings"}
+{"timestamp":"2025-06-10T15:16:59.944411","level":"warning","event":"/opt/airflow/dags/Update.py:168: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  df['close_t+1'].iloc[:-1] = df['close'].iloc[1:]\n","logger":"py.warnings"}
+{"timestamp":"2025-06-10T15:17:00.603625","level":"warning","event":"/opt/airflow/dags/Update.py:246: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] = value instead\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n  df_close['date'] = pd.to_datetime(df_close['date'],format= '%Y-%m-%d')\n","logger":"py.warnings"}
+{"timestamp":"2025-06-10T15:17:00.606672Z","level":"info","event":"           date    close","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.606798Z","level":"info","event":"0    2006-12-04   6921.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.606883Z","level":"info","event":"1    2006-12-05   6757.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.606955Z","level":"info","event":"2    2006-12-06   6921.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607020Z","level":"info","event":"3    2006-12-07   7388.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607094Z","level":"info","event":"4    2006-12-08   7745.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607169Z","level":"info","event":"...         ...      ...","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607237Z","level":"info","event":"4606 2025-06-03  21150.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607305Z","level":"info","event":"4607 2025-06-04  21300.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607382Z","level":"info","event":"4608 2025-06-05  21150.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607507Z","level":"info","event":"4609 2025-06-06  21050.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607584Z","level":"info","event":"4610 2025-06-10  20950.0","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607652Z","level":"info","event":"","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.607717Z","level":"info","event":"[4611 rows x 2 columns]","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.610307Z","level":"info","event":"        date         close","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.610376Z","level":"info","event":"0 2025-06-11  21122.359375","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.896003","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-06-10T15:17:00.904873Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.905003Z","level":"info","event":" Previous state of the Task instance: running","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-10T15:17:00.905057Z","level":"info","event":"Task operator:<Task(PythonOperator): prediction>","chan":"stdout","logger":"task"}
