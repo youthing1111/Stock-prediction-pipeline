@@ -285,7 +285,7 @@ def prediction(**context):
 
     content = s3.Bucket("mlflow-artifacts").Object("/plot.jpg").get()['Body'].read()
 
-    g = Github("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")
+    g = Github("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")
 
     repo = g.get_user().get_repo('StockPredict.github.io')
     all_files = []

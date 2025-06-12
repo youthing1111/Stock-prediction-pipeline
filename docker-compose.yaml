@@ -319,7 +319,6 @@ services:
       timeout: 20s
       retries: 3
 
-      
   tracking_server:
     restart: always
     build: ./MLFlow
@@ -350,6 +349,32 @@ services:
       timeout: 10s
       retries: 3
 
+  spark-master:
+    image: bitnami/spark:4.0.0
+    environment:
+      - SPARK_MODE=master
+      - SPARK_MASTER_WEBUI_PORT=8081
+      - SPARK_MASTER_PORT=7077
+      #- SPARK_SUBMIT_OPTIONS=--packages io.delta:delta-spark_2.12:3.2.0
+      - SPARK_MASTER_HOST=spark-master
+    ports:
+      - '8081:8081'
+      - '7077:7077'
+    hostname: localhost
+    # MUST BE OFF VPN FOR THIS TO WORK
+    #extra_hosts:
+    #  - "host.docker.internal:${HOST_IP}"
+  spark-worker:
+    image: bitnami/spark:4.0.0
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_WEBUI_PORT = 8082
+    #extra_hosts:
+    #  - "host.docker.internal:${HOST_IP}"
+
 networks:
   frontend:
     driver: bridge
@@ -357,4 +382,5 @@ networks:
     driver: bridge
 
 #docker compose --env-file config.env up --build --force-recreate 
-
+#docker compose --env-file config.env up --build spark-master
+#docker compose --env-file config.env up --build spark-worker
