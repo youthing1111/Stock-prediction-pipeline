@@ -14,7 +14,7 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- airflow-provider-mlflow mlflow apache-airflow-providers-amazon apache-airflow-providers-postgres minio xgboost}
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- airflow-provider-mlflow mlflow apache-airflow-providers-amazon apache-airflow-providers-postgres minio xgboost apache-airflow-providers-apache-spark}
   volumes:
     - /Users/trieuhoanghiep/Documents/Me/Project/Stock-prediction-pipeline/Airflow/dags:/opt/airflow/dags
     - /Users/trieuhoanghiep/Documents/Me/Project/Stock-prediction-pipeline/Airflow/logs:/opt/airflow/logs
