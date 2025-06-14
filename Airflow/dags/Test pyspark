@@ -19,7 +19,7 @@ def update_data(**context):
     df_old = hook.get_pandas_df(sql_ts)
 
 with DAG(
-    dag_id="Test_spark",
+    dag_id="Test_spark_1",
     default_args=default_args,
     #schedule='30 13 * * *'
 ) as dag:

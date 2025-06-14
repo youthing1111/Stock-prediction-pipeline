@@ -295,7 +295,7 @@ services:
 
   s3:
     restart: always
-    image: minio/minio:latest
+    image: minio/minio:RELEASE.2025-02-28T09-55-16Z-cpuv1
     container_name: ACB_Minio
     #volumes:
     #  - 'minio_data:/data'
@@ -382,5 +382,5 @@ networks:
     driver: bridge
 
 #docker compose --env-file config.env up --build --force-recreate 
-#docker compose --env-file config.env up --build spark-master
-#docker compose --env-file config.env up --build spark-worker
+#docker compose --env-file config.env up --build tracking_server
+#docker compose --env-file config.env up --build s3

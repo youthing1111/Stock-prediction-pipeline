@@ -228,13 +228,13 @@ def prediction(**context):
 
     s3 = boto3.resource('s3',
                         endpoint_url='http://host.docker.internal:9005',
-                        aws_access_key_id='WDccHneuJ5Kq7HkpBekl',
-                        aws_secret_access_key='OAGsS0V1SlYvTAllPvvu1ajYhTaMoYLaow3odUp1'
+                        aws_access_key_id='4U247Rhn8cRGtTgiiJUg',
+                        aws_secret_access_key='58SHIao9tx0bQNjaS2MyU8rNZdOwUhROsv4yiNyP'
     )
 
     temp_model_location = './temp_model.pkl'
     temp_model_file = open(temp_model_location, 'wb')
-    temp_model_file.write(s3.Bucket("mlflow-artifacts").Object("1/a63d83bde6cd48f5a6ccd3bd621f57e7/artifacts/testmodel/model.xgb").get()['Body'].read())
+    temp_model_file.write(s3.Bucket("mlflow-artifacts").Object("1/232bdcf2cc164c76bade410782fd9a48/artifacts/testmodel/model.xgb").get()['Body'].read())
     temp_model_file.close()
     model = XGBRegressor(enable_categorical=True)
     model.load_model(temp_model_location)
@@ -331,7 +331,7 @@ def prediction(**context):
         print(git_file + ' CREATED')
 
 with DAG(
-    dag_id="Stock_prediction_update",
+    dag_id="Stock_prediction",
     default_args=default_args,
     schedule='30 13 * * *'
 ) as dag:
