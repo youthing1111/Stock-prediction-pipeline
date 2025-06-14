@@ -1,12 +1,23 @@
 FROM apache/airflow:3.0.0
 #docker-compose up -d --build
 # Install deps as root.
+RUN pip install apache-airflow-providers-apache-spark
+
 USER root
 RUN  apt-get -y update && \
-    apt-get -y install python3-dev libhdf5-dev default-libmysqlclient-dev build-essential pkg-config
+    apt-get -y install python3-dev libhdf5-dev default-libmysqlclient-dev build-essential pkg-config && \
+    apt-get install -y --no-install-recommends openjdk-17-jdk && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+#ENV SPARK_HOME="/opt/spark"
+#ENV JAVA_HOME="/usr/lib/jvm/java-17-openjdk-arm64"
+#ENV PATH="${JAVA_HOME}:${SPARK_HOME}/bin:${SPARK_HOME}/sbin:${PATH}"
+#RUN export JAVA_HOME
 
 USER airflow
 # Install python requirements
 RUN pip install PyGithub 
     #pip install tensorflow
+ENV JAVA_HOME="/usr/lib/jvm/java-17-openjdk-arm64"
+RUN export JAVA_HOME
 CMD ["bash"]

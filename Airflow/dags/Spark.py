@@ -12,21 +12,18 @@ default_args = {
     'retries': 0,
 }
 
-def update_data(**context):
-    hook = PostgresHook(postgres_conn_id="postgres")
-
-    sql_ts = """ SELECT * FROM public."acb_stock" """
-    df_old = hook.get_pandas_df(sql_ts)
-
 with DAG(
     dag_id="Test_spark",
     default_args=default_args,
     #schedule='30 13 * * *'
 ) as dag:
     task_1 = SparkSubmitOperator(
-		application = "/opt/airflow/dags/spark.py",
+		application = "/opt/airflow/dags/spark_task.py",
         conn_id= 'spark',
-		task_id='spark_submit_task'
+		task_id='spark_submit_task',
+        env_vars={
+            'YARN_CONF_DIR': '/opt/bitnami/spark/yarn'  # Set this if using Yarn
+        }
 		)
     task_1
 

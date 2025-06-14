@@ -382,5 +382,5 @@ networks:
     driver: bridge
 
 #docker compose --env-file config.env up --build --force-recreate 
-#docker compose --env-file config.env up --build tracking_server
+#docker compose --env-file config.env up --build airflow-apiserver
 #docker compose --env-file config.env up --build s3
