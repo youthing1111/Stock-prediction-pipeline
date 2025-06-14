@@ -1,4 +1,5 @@
-from airflow.hooks.base import BaseHook
+#from airflow.hooks.base import BaseHook
+#from airflow.providers.postgres.hooks.postgres import PostgresHook
 from sqlalchemy import create_engine
 import pandas as pd
 import logging
@@ -17,7 +18,7 @@ import mlflow
 import mlflow.sklearn
 from mlflow.models import infer_signature
 
-conn = BaseHook.get_connection('postgres')
+#conn = BaseHook.get_connection('postgres')
 engine = create_engine(f'postgresql://airflow:airflow@localhost:5434/stock')
 
 with engine.connect() as conn:
@@ -121,6 +122,7 @@ def typical_price(data, high_col = 'high', low_col = 'low', close_col = 'close')
     return data
 typical_price(df)
 
+df.replace([np.inf, -np.inf], np.nan, inplace=True)
 df_nonna = df.dropna()
 df_nonna = df_nonna.drop(columns=['date'])
 from sklearn.model_selection import train_test_split
