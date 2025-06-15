@@ -1,6 +1,5 @@
 from github import Github
 from datetime import datetime, timedelta
-#from airflow.utils.dates import days_ago
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
@@ -11,14 +10,13 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd 
 import numpy as np
-import mlflow
 import boto3
 from airflow.hooks.base import BaseHook
-import pickle
 from matplotlib import pyplot as plt
 import matplotlib.dates as mdates
 import io 
 from xgboost import XGBRegressor
+from io import StringIO
 
 default_args = {
     'owner': 'admin',
@@ -38,7 +36,7 @@ c = Connection(
     password='airflow'
 )
 
-def update_data(**context):
+def update_data():
     hook = PostgresHook(postgres_conn_id="postgres")
 
     sql_ts = """ SELECT * FROM public."acb_stock" """
@@ -120,11 +118,22 @@ def update_data(**context):
 
     df_full = pd.concat([df_old, df_latest])
     df_full.reset_index(names="date",inplace=True)
-    df_full.drop_duplicates(inplace=True,keep='last')
 
-    df_full.to_sql(f'acb_stock', engine, if_exists='replace', index=False)
+    if set(df_full[['close','open','high','low','volume']].iloc[-2]) == set(df_full[['close','open','high','low','volume']].iloc[-1]):
+        print('asdeqfwe')
+    else:
+        df_full.to_sql(f'acb_stock', engine, if_exists='replace', index=False)
 
-def prediction(**context):
+        csv_buffer = StringIO()
+        df_full.to_csv(csv_buffer)
+
+        s3 = boto3.resource('s3',
+                        endpoint_url='http://host.docker.internal:9005',
+                        aws_access_key_id='4U247Rhn8cRGtTgiiJUg',
+                        aws_secret_access_key='58SHIao9tx0bQNjaS2MyU8rNZdOwUhROsv4yiNyP')
+        s3.Object('mlflow-artifacts', 'data_copy.csv').put(Body=csv_buffer.getvalue())
+
+def prediction():
     hook = PostgresHook(postgres_conn_id="postgres")
 
     sql_ts = """ SELECT * FROM public."acb_stock" """
@@ -159,7 +168,6 @@ def prediction(**context):
         df['fast_d'] = df['fast_k'].rolling(3).mean().round(2)
         df['slow_k'] = df['fast_d']
         df['slow_d'] = df['slow_k'].rolling(3).mean().round(2)
-
         return df
     get_stochastic_oscillator(df)
     df['LW'] = ((df['high']-df['close'])/(df['high']-df['low']))*100
