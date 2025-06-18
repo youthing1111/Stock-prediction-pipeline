@@ -350,7 +350,8 @@ services:
       retries: 3
 
   spark-master:
-    image: bitnami/spark:4.0.0
+    build: ./PySpark
+    #image: bitnami/spark:4.0.0
     environment:
       - SPARK_MODE=master
       - SPARK_MASTER_WEBUI_PORT=8081
@@ -365,7 +366,8 @@ services:
     #extra_hosts:
     #  - "host.docker.internal:${HOST_IP}"
   spark-worker:
-    image: bitnami/spark:4.0.0
+    build: ./PySpark
+    #image: bitnami/spark:4.0.0
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
@@ -382,5 +384,5 @@ networks:
     driver: bridge
 
 #docker compose --env-file config.env up --build --force-recreate 
-#docker compose --env-file config.env up --build spark-master
+#docker compose --env-file config.env up --build spark-master spark-worker
 #docker compose --env-file config.env up --build s3
