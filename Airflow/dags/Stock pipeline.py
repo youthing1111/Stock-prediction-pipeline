@@ -17,6 +17,7 @@ import matplotlib.dates as mdates
 import io 
 from xgboost import XGBRegressor
 from io import StringIO
+from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 default_args = {
     'owner': 'admin',
@@ -123,9 +124,10 @@ def update_data():
         print('asdeqfwe')
     else:
         df_full.to_sql(f'acb_stock', engine, if_exists='replace', index=False)
+        df_35 = df_full.iloc[-26:]
 
         csv_buffer = StringIO()
-        df_full.to_csv(csv_buffer)
+        df_35.to_csv(csv_buffer)
 
         s3 = boto3.resource('s3',
                         endpoint_url='http://host.docker.internal:9005',
@@ -133,112 +135,20 @@ def update_data():
                         aws_secret_access_key='58SHIao9tx0bQNjaS2MyU8rNZdOwUhROsv4yiNyP')
         s3.Object('mlflow-artifacts', 'data_copy.csv').put(Body=csv_buffer.getvalue())
 
-def prediction():
-    hook = PostgresHook(postgres_conn_id="postgres")
-
-    sql_ts = """ SELECT * FROM public."acb_stock" """
-    df = hook.get_pandas_df(sql_ts)
-
-    sma = df['close'].rolling(9).mean()
-    df = df.join(sma, rsuffix='_sma')
-    weights = [0.1, 0.2, 0.3,0.4,0.5,0.6,0.7,0.8,0.9]
-    wma = df['close'].rolling(9).apply(lambda x: sum((weights*x)) / sum(weights), raw=True)
-    df = df.join(wma, rsuffix='_wma')
-    ema12 = df['close'].ewm(span=12, adjust=False).mean()
-    ema26 = df['close'].ewm(span=26, adjust=False).mean()
-    df = df.join(ema12, rsuffix='_ema12')
-    df = df.join(ema26, rsuffix='_ema26')
-    df['MACD']  = df['close_ema12'] - df['close_ema26']
-    def get_stochastic_oscillator(df, period=14):
-        for i in range(len(df)):
-            low = df.iloc[i]['close']
-            high = df.iloc[i]['close']
-            if i >= period:
-                n = 0
-                while n < period:
-                    if df.iloc[i-n]['close'] >= high:
-                        high = df.iloc[i-n]['close']
-                    elif df.iloc[i-n]['close'] < low:
-                        low = df.iloc[i-n]['close']
-                    n += 1
-                df.at[i, 'best_low'] = low
-                df.at[i, 'best_high'] = high
-                df.at[i, 'fast_k'] = 100*((df.iloc[i]['close']-df.iloc[i]['best_low'])/(df.iloc[i]['best_high']-df.iloc[i]['best_low']))
-
-        df['fast_d'] = df['fast_k'].rolling(3).mean().round(2)
-        df['slow_k'] = df['fast_d']
-        df['slow_d'] = df['slow_k'].rolling(3).mean().round(2)
-        return df
-    get_stochastic_oscillator(df)
-    df['LW'] = ((df['high']-df['close'])/(df['high']-df['low']))*100
-    df['close_t+1'] = df['close'].diff(1)
-    df['close_t+1'] = np.nan
-    df['close_t+1'].iloc[:-1] = df['close'].iloc[1:]
-    def f(df):
-        if df['close_t+1'] > df['close']:
-            val = 1
-        elif df['close_t+1'] < df['close']:
-            val = 0
-        else:
-            val = np.nan
-        return val
-    df['Target'] = df.apply(f, axis=1)
-    def acc_dist(data, trend_periods=9, open_col='OPEN', high_col='high', low_col='low', close_col='close', vol_col='volume'):
-        for index, row in data.iterrows():
-            if row[high_col] != row[low_col]:
-                ac = ((row[close_col] - row[low_col]) - (row[high_col] - row[close_col])) / (row[high_col] - row[low_col]) * row[vol_col]
-            else:
-                ac = 0
-            df.at[index,'acc_dist'] = ac
-        data['acc_dist_ema' + str(trend_periods)] = data['acc_dist'].ewm(ignore_na=False, min_periods=0, com=trend_periods, adjust=True).mean()
-        return data
-    acc_dist(df)
-    def on_balance_volume(data, trend_periods=9, close_col='close', vol_col='volume'):
-        for index, row in data.iterrows():
-            if index > 0:
-                last_obv = data.at[index - 1, 'obv']
-                if row[close_col] > data.at[index - 1, close_col]:
-                    current_obv = last_obv + row[vol_col]
-                elif row[close_col] < data.at[index - 1, close_col]:
-                    current_obv = last_obv - row[vol_col]
-                else:
-                    current_obv = last_obv
-            else:
-                last_obv = 0
-                current_obv = row[vol_col]
-
-            df.at[index,'obv'] = current_obv
-        data['obv_ema' + str(trend_periods)] = data['obv'].ewm(ignore_na=False, min_periods=0, com=trend_periods, adjust=True).mean()
-        return data
-    on_balance_volume(df)
-    def price_volume_trend(data, trend_periods=9, close_col='close', vol_col='volume'):
-        for index, row in data.iterrows():
-            if index > 0:
-                last_val = data.at[index - 1, 'pvt']
-                last_close = data.at[index - 1, close_col]
-                today_close = row[close_col]
-                today_vol = row[vol_col]
-                current_val = last_val + (today_vol * (today_close - last_close) / last_close)
-            else:
-                current_val = row[vol_col]
-
-            df.at[index,'pvt'] = current_val
-        data['pvt_ema' + str(trend_periods)] = data['pvt'].ewm(ignore_na=False, min_periods=0, com=trend_periods, adjust=True).mean()
-        return data
-    price_volume_trend(df)
-    def typical_price(data, high_col = 'high', low_col = 'low', close_col = 'close'):
-        data['typical_price'] = (data[high_col] + data[low_col] + data[close_col]) / 3
-        return data
-    typical_price(df)
-    df_all = df
-    df = df.iloc[[-1]]
-    input = df.drop(columns=['close_t+1'])
-
+def prediction_2():
     s3 = boto3.resource('s3',
                         endpoint_url='http://host.docker.internal:9005',
                         aws_access_key_id='4U247Rhn8cRGtTgiiJUg',
                         aws_secret_access_key='58SHIao9tx0bQNjaS2MyU8rNZdOwUhROsv4yiNyP'
     )
+
+    object = s3.Bucket("mlflow-artifacts").Object("data_transform.csv").get()['Body'].read()
+    s = str(object,'utf-8')
+    data = StringIO(s)
+    df = pd.read_csv(data)
+    df = df.drop(columns=['Unnamed: 0.1', 'Unnamed: 0','acc_dist_ema_9'])
+    df_reorder = df[['close', 'open', 'high', 'low', 'volume', 'change', 'close_sma', 'close_wma', 'close_ema12', 'close_ema26', 'MACD', 'best_low', 'best_high', 'fast_k', 'fast_d', 'slow_k', 'slow_d', 'LW', 'Target', 'acc_dist', 'acc_dist_ema9', 'obv', 'obv_ema9', 'pvt', 'pvt_ema9', 'typical_price']]
+    input = df_reorder.iloc[[-1]]
 
     temp_model_location = './temp_model.pkl'
     temp_model_file = open(temp_model_location, 'wb')
@@ -247,10 +157,9 @@ def prediction():
     model = XGBRegressor(enable_categorical=True)
     model.load_model(temp_model_location)
 
-    input = input.drop(columns=['date'])
     pred = model.predict(input)
 
-    df_close = df_all[['date','close']]
+    df_close = df[['date','close']]
     df_close['date'] = pd.to_datetime(df_close['date'],format= '%Y-%m-%d')
     print(df_close)
 
@@ -347,8 +256,16 @@ with DAG(
         task_id = "update_data",
         python_callable=update_data
     )
-    task_2 =PythonOperator(
-        task_id = "prediction",
-        python_callable=prediction
+    task_2 = SparkSubmitOperator(
+		application = "/opt/airflow/dags/spark_task.py",
+        conn_id= 'spark',
+		task_id='spark_submit_task',
+        env_vars={
+            'YARN_CONF_DIR': '/opt/bitnami/spark/yarn'  # Set this if using Yarn
+        }
+		)
+    task_4 =PythonOperator(
+        task_id = "prediction_2",
+        python_callable=prediction_2
     )
-    task_1>>task_2
+    task_1>>task_2>>task_4
