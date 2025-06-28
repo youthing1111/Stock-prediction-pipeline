@@ -270,7 +270,6 @@ services:
         condition: service_completed_successfully
 
   database:
-    #image: postgres:13
     build:
       context: Postgres
       dockerfile: Dockerfile
@@ -316,7 +315,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9005/minio/health/live"]
       interval: 30s
-      timeout: 20s
+      timeout: '20s'
       retries: 3
 
   tracking_server:
@@ -351,12 +350,10 @@ services:
 
   spark-master:
     build: ./PySpark
-    #image: bitnami/spark:4.0.0
     environment:
       - SPARK_MODE=master
       - SPARK_MASTER_WEBUI_PORT=8081
       - SPARK_MASTER_PORT=7077
-      #- SPARK_SUBMIT_OPTIONS=--packages io.delta:delta-spark_2.12:3.2.0
       - SPARK_MASTER_HOST=spark-master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
@@ -366,15 +363,10 @@ services:
     ports:
       - '8081:8081'
       - '7077:7077'
-      - "4040:4040/tcp"
     hostname: localhost
     user: "0:0" 
-    # MUST BE OFF VPN FOR THIS TO WORK
-    #extra_hosts:
-    #  - "host.docker.internal:${HOST_IP}"
   spark-worker:
     build: ./PySpark
-    #image: bitnami/spark:4.0.0
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
@@ -390,12 +382,8 @@ services:
     hostname: localhost
     ports:
       - "8082:8081/tcp"
-      - "4041:4040/tcp"
-    #extra_hosts:
-    #  - "host.docker.internal:${HOST_IP}"
   spark-worker-2:
     build: ./PySpark
-    #image: bitnami/spark:4.0.0
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
@@ -411,9 +399,6 @@ services:
     hostname: localhost
     ports:
       - "8083:8081/tcp"
-      - "4042:4040/tcp"
-    #extra_hosts:
-    #  - "host.docker.internal:${HOST_IP}"
 
 networks:
   frontend:
@@ -422,5 +407,4 @@ networks:
     driver: bridge
 
 #docker compose --env-file config.env up --build --force-recreate 
-#docker compose --env-file config.env up --build spark-worker
 #docker compose --env-file config.env up --build s3

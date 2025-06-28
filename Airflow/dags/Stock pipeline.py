@@ -26,8 +26,8 @@ default_args = {
     'email': ['airflow@example.com'],
     'email_on_failure': False,
     'email_on_retry': False,
-    'retries': 0,
-    'retry_delay': timedelta(minutes=5)
+    'retries': 1,
+    'retry_delay': timedelta(minutes=1)
 }
 
 c = Connection(
@@ -38,13 +38,13 @@ c = Connection(
 )
 
 def update_data():
+    #get old data from postgres
     hook = PostgresHook(postgres_conn_id="postgres")
-
     sql_ts = """ SELECT * FROM public."acb_stock" """
     df_old = hook.get_pandas_df(sql_ts)
 
+    #new data from source
     date  = datetime.today().strftime('%Y-%m-%d')
-
     close = []
     open = []
     high = []
@@ -58,7 +58,6 @@ def update_data():
     table1 = div1.find('table',{'id':'ctl00_PlaceHolderContentArea_CenterZone'})
     tr1 = table1.find_all('tr',{'class':'rowcolor2'})
     tr2 = table1.find_all('tr',{'class':'rowcolor1'})
-    
     for row in tr1:
         stock_price = row.find_all('td',attrs={'align':'right'})[4].text
         close.append(stock_price.strip())
@@ -66,7 +65,6 @@ def update_data():
         stock_price = row.find_all('td',attrs={'align':'right'})[4].text
         close.append(stock_price.strip())
     close.append(stock_price.strip())
-
     for row in tr1:
         stock_price = row.find_all('td',attrs={'align':'right'})[1].text
         open.append(stock_price.strip())
@@ -74,7 +72,6 @@ def update_data():
         stock_price = row.find_all('td',attrs={'align':'right'})[1].text
         open.append(stock_price.strip())
     open.append(stock_price.strip())
-
     for row in tr1:
         stock_price = row.find_all('td',attrs={'align':'right'})[2].text
         high.append(stock_price.strip())
@@ -82,7 +79,6 @@ def update_data():
         stock_price = row.find_all('td',attrs={'align':'right'})[2].text
         high.append(stock_price.strip())
     high.append(stock_price.strip())
-
     for row in tr1:
         stock_price = row.find_all('td',attrs={'align':'right'})[3].text
         low.append(stock_price.strip())
@@ -90,7 +86,6 @@ def update_data():
         stock_price = row.find_all('td',attrs={'align':'right'})[3].text
         low.append(stock_price.strip())
     low.append(stock_price.strip())
-
     for row in tr1:
         stock_price = row.find_all('td',attrs={'align':'right'})[7].text
         volume.append(stock_price.strip())
@@ -106,74 +101,66 @@ def update_data():
     df_latest['close'] = df_latest['close'].astype(float).apply(lambda x: x*1000)
     df_latest['VOLUME'] = df_latest['VOLUME'].astype(float)
 
+    #concat data
     conn = BaseHook.get_connection('postgres')
     engine = create_engine(f'postgresql://{conn.login}:{conn.password}@{conn.host}:{conn.port}/{conn.schema}')
-
-    #df_old = df_old.drop(columns=['change'])
     df_old = df_old.sort_values(by='date')
     df_old.set_index("date",inplace=True)
-
     df_latest.rename(index={0:date},inplace=True)
     df_latest = df_latest.rename(columns={'HIGH': 'high', 'LOW': 'low','close':'close','OPEN':'open','VOLUME':'volume'})
     df_latest['volume'] = df_latest['volume']/1000000
-
     df_full = pd.concat([df_old, df_latest])
     df_full.reset_index(names="date",inplace=True)
 
+    #store in postgres and minio
     if set(df_full[['close','open','high','low','volume']].iloc[-2]) == set(df_full[['close','open','high','low','volume']].iloc[-1]):
         print('asdeqfwe')
     else:
         df_full.to_sql(f'acb_stock', engine, if_exists='replace', index=False)
         df_35 = df_full.iloc[-26:]
-
         csv_buffer = StringIO()
         df_35.to_csv(csv_buffer)
-
         s3 = boto3.resource('s3',
                         endpoint_url='http://host.docker.internal:9005',
-                        aws_access_key_id='4U247Rhn8cRGtTgiiJUg',
-                        aws_secret_access_key='58SHIao9tx0bQNjaS2MyU8rNZdOwUhROsv4yiNyP')
+                        aws_access_key_id='',
+                        aws_secret_access_key='')
         s3.Object('mlflow-artifacts', 'data_copy.csv').put(Body=csv_buffer.getvalue())
 
 def prediction_2():
+    #get transformed data for prediction
     s3 = boto3.resource('s3',
                         endpoint_url='http://host.docker.internal:9005',
-                        aws_access_key_id='4U247Rhn8cRGtTgiiJUg',
-                        aws_secret_access_key='58SHIao9tx0bQNjaS2MyU8rNZdOwUhROsv4yiNyP'
+                        aws_access_key_id='',
+                        aws_secret_access_key=''
     )
-
     object = s3.Bucket("mlflow-artifacts").Object("data_transform.csv").get()['Body'].read()
     s = str(object,'utf-8')
     data = StringIO(s)
     df = pd.read_csv(data)
-    df = df.drop(columns=['Unnamed: 0.1', 'Unnamed: 0','acc_dist_ema_9'])
+    df = df.drop(columns=['Unnamed: 0.1', 'Unnamed: 0'])
     df_reorder = df[['close', 'open', 'high', 'low', 'volume', 'change', 'close_sma', 'close_wma', 'close_ema12', 'close_ema26', 'MACD', 'best_low', 'best_high', 'fast_k', 'fast_d', 'slow_k', 'slow_d', 'LW', 'Target', 'acc_dist', 'acc_dist_ema9', 'obv', 'obv_ema9', 'pvt', 'pvt_ema9', 'typical_price']]
     input = df_reorder.iloc[[-1]]
 
+    #get model from minio
     temp_model_location = './temp_model.pkl'
     temp_model_file = open(temp_model_location, 'wb')
     temp_model_file.write(s3.Bucket("mlflow-artifacts").Object("1/232bdcf2cc164c76bade410782fd9a48/artifacts/testmodel/model.xgb").get()['Body'].read())
     temp_model_file.close()
     model = XGBRegressor(enable_categorical=True)
     model.load_model(temp_model_location)
-
     pred = model.predict(input)
 
+    #visualise
     df_close = df[['date','close']]
     df_close['date'] = pd.to_datetime(df_close['date'],format= '%Y-%m-%d')
-    print(df_close)
-
     date=datetime.today().strftime('%Y-%m-%d')
     date_after = pd.to_datetime(date) + timedelta(days=1)
-
     df_pred = pd.DataFrame([[date_after,round(pred[0],0)]], columns=['date','close'])
     df_pred['date'] = pd.to_datetime(df_pred['date'],format= '%Y-%m-%d')
     print(df_pred)
     df_concat = pd.concat([df_close.iloc[[-1]], df_pred], ignore_index=True)
-
     b = df_close
     c = df_concat
-
     fig, ax = plt.subplots()
     ax.plot(b['date'].iloc[-3:],b['close'].iloc[-3:],color="gray", label = 'History price')
     ax = plt.subplot(111)
@@ -190,20 +177,17 @@ def prediction_2():
         ax.annotate(txt, (x[i], y[i]))
     buf = io.BytesIO()
     plt.savefig(buf, format="jpg")
-
     temp_model_location = './plot.jpg'
     temp_model_file = open(temp_model_location, 'wb')
     temp_model_file.write(buf.getvalue())
     temp_model_file.close()
     buf.close()
     plt.show()
-
     s3.meta.client.upload_file(temp_model_location, 'mlflow-artifacts', 'plot.jpg')
-
     content = s3.Bucket("mlflow-artifacts").Object("/plot.jpg").get()['Body'].read()
 
+    #upload to github website
     g = Github("")
-
     repo = g.get_user().get_repo('StockPredict.github.io')
     all_files = []
     contents = repo.get_contents("")
@@ -256,14 +240,15 @@ with DAG(
         task_id = "update_data",
         python_callable=update_data
     )
+    #submit spark for feature engineering
     task_2 = SparkSubmitOperator(
 		application = "/opt/airflow/dags/spark_task.py",
         conn_id= 'spark',
 		task_id='spark_submit_task',
         env_vars={
-            'YARN_CONF_DIR': '/opt/bitnami/spark/yarn'  # Set this if using Yarn
+            'YARN_CONF_DIR': '/opt/bitnami/spark/yarn'  
         }
-		)
+	)
     task_4 =PythonOperator(
         task_id = "prediction_2",
         python_callable=prediction_2

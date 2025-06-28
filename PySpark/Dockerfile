@@ -9,3 +9,6 @@ RUN export YARN_CONF_DIR
 # any files/libraries you need on the cluster, install here ie:
 RUN pip install pandas
 RUN pip install pyarrow
+RUN pip install xgboost
+RUN pip install scikit-learn
+EXPOSE 8082 8081 7077 4040
