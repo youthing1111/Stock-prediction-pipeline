@@ -3,4 +3,4 @@ Automated daily-run program for stock price prediction: Every day the program au
 
 Tool used: Airflow, Minio, MLflow, Docker, Python, SQL, Pyspark
 
-![Pipeline Diagram](Stock Prediction System Diagram.png)
+! [Pipeline Diagram](Stock_Prediction_System_Diagram.png)
